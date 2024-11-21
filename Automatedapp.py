@@ -575,7 +575,7 @@ if file:
         # Remove square brackets and single quotes from the 'Journalist' column
         data['Journalist'] = data['Journalist'].str.replace(r"^\['(.+)'\]$", r"\1", regex=True)
         # Fill missing values in 'Influencer' column with 'Bureau News'
-        data['Journalist'] = data['Journalist'].fillna('Bureau News')
+        # data['Journalist'] = data['Journalist'].fillna('Bureau News')
 
         # Function to classify news exclusivity and topic
         def classify_exclusivity(row):
@@ -695,7 +695,9 @@ if file:
             "Publication Type and Name Table":PP_table,
             "Publication Type Table with Entity":PType_Entity,
             # "Publication type,Publication Name and Entity Table":ppe1,
-            "Entity-wise Sheets": finaldata  # Add this option to download entity-wise sheets
+            "Entity-wise Sheets": finaldata  # Add this option to download entity-wise sheets,
+            "Journalist writing on Comp & not on Client" : Jour_Comp, 
+            "Journalist writing on Client & not on Comp" : Jour_Client
         }
         selected_dataframe = st.sidebar.selectbox("Select DataFrame:", list(dataframes_to_download.keys()))
         
@@ -718,9 +720,9 @@ if file:
         
         if st.sidebar.button("Download All DataFrames"):
             # List of DataFrames to save
-            dfs = [Entity_SOV3, sov_dt1, pubs_table, Jour_table, PType_Entity, PP_table]
+            dfs = [Entity_SOV3, sov_dt1, pubs_table, Jour_table, PType_Entity, PP_table, Jour_Comp, Jour_Client]
             comments = ['SOV Table', 'Month-on-Month Table', 'Publication Table', 'Journalist Table',
-                        'Pub Type and Entity Table', 'Pub Type and Pub Name Table'
+                        'Pub Type and Entity Table', 'Pub Type and Pub Name Table','Jour writing on Comp and not on Client', 'Jour writing on Client and not on Comp'
                         ]
             
             entity_info = """Entity:
