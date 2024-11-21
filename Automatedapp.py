@@ -641,8 +641,8 @@ if file:
 
         finaldata['Topic'] = finaldata['Headline'].apply(classify_topic)
 
-        dfs = [Entity_SOV3, sov_dt1, pubs_table, Jour_table, PType_Entity, PP_table, Jour_Comp, Jour_Client]
-        comments = ['SOV Table', 'Month-on-Month Table', 'Publication Table', 'Journalist Table','PubType Entity Table', 'Pub Type and Pub Name Table',
+        dfs = [Entity_SOV3, sov_dt1, pubs_table, Jour_table, PType_Entity, Jour_Comp, Jour_Client]
+        comments = ['SOV Table', 'Month-on-Month Table', 'Publication Table', 'Journalist Table','PubType Entity Table',
                    'Jour writing on Comp and not on Client', 'Jour writing on Client and not on Comp']
 
         # Sidebar for download options
