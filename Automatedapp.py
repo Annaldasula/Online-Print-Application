@@ -692,7 +692,7 @@ if file:
             "Month-on-Month":sov_dt1,
             "Publication Table":pubs_table,
             "Journalist Table":Jour_table,
-            "Publication Type and Name Table":PP_table,
+            # "Publication Type and Name Table":PP_table,
             "Publication Type Table with Entity":PType_Entity,
             # "Publication type,Publication Name and Entity Table":ppe1,
             "Entity-wise Sheets": finaldata,                            # Add this option to download entity-wise sheets
@@ -720,9 +720,9 @@ if file:
         
         if st.sidebar.button("Download All DataFrames"):
             # List of DataFrames to save
-            dfs = [Entity_SOV3, sov_dt1, pubs_table, Jour_table, PType_Entity, PP_table, Jour_Comp, Jour_Client]
+            dfs = [Entity_SOV3, sov_dt1, pubs_table, Jour_table, PType_Entity, Jour_Comp, Jour_Client]
             comments = ['SOV Table', 'Month-on-Month Table', 'Publication Table', 'Journalist Table',
-                        'Pub Type and Entity Table', 'Pub Type and Pub Name Table','Jour writing on Comp and not on Client', 'Jour writing on Client and not on Comp'
+                        'Pub Type and Entity Table','Jour writing on Comp and not on Client', 'Jour writing on Client and not on Comp'
                         ]
             
             entity_info = """Entity:
