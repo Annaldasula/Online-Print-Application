@@ -695,8 +695,8 @@ if file:
             "Publication Type and Name Table":PP_table,
             "Publication Type Table with Entity":PType_Entity,
             # "Publication type,Publication Name and Entity Table":ppe1,
-            "Entity-wise Sheets": finaldata  # Add this option to download entity-wise sheets,
-            "Journalist writing on Comp & not on Client" : Jour_Comp, 
+            "Entity-wise Sheets": finaldata,                            # Add this option to download entity-wise sheets
+            "Journalist writing on Comp not on Client" : Jour_Comp, 
             "Journalist writing on Client & not on Comp" : Jour_Client,
         }
         selected_dataframe = st.sidebar.selectbox("Select DataFrame:", list(dataframes_to_download.keys()))
