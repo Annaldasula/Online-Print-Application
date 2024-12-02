@@ -1174,6 +1174,8 @@ News search: All Articles: entity mentioned at least once in the article"""
         # Create a new PowerPoint presentation
         # prs = Presentation()
 
+        textbox_text.word_wrap = True
+
         # Loop through each DataFrame and create a new slide with a table
         for i, (df, title) in enumerate(zip(dfs, table_titles)):
             slide = prs.slides.add_slide(prs.slide_layouts[6])
