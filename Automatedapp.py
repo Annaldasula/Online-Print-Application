@@ -1139,9 +1139,9 @@ News search: All Articles: entity mentioned at least once in the article"""
         # List of DataFrames to save
         pubs_table1 = pubs_table.head(10)
         Jour_table1 = Jour_table.head(10)
-        dfs = [Entity_SOV3, sov_dt1, pubs_table1, Jour_table1, PType_Entity]
+        dfs = [Entity_SOV3, sov_dt1, pubs_table1, Jour_table1, PType_Entity, Jour_Comp, Jour_Client]
         table_titles = ['SOV Table', 'Month-on-Month Table', 'Publication Table', 'Journalist Table',
-                    'Pub Type and Entity Table', 
+                    'Pub Type and Entity Table','Jour writing on Comp and not on Client', 'Jour writing on Client and not on Comp'
                     ]
         textbox_text = [ "•IIT Ropar and its peers collectively received a total of 19932 news mentions online during the specified time period.\n"
     "•Among these, IIT Madras dominates the conversation with 28% of the total SOV, indicating significant media coverage and visibility.\n"
