@@ -777,8 +777,8 @@ News search: All Articles: entity mentioned at least once in the article"""
 
     text_box = slide.shapes.add_textbox(Inches(1.9), Inches(1.0), textbox_width, textbox_height)
     text_frame = text_box.text_frame
-    text_frame.text = (f"{client_name}.\n"
-                      "News Analysis.\n"
+    text_frame.text = (f"{client_name}\n"
+                      "News Analysis\n"
                     "By Media Research & Analytics Team")
 
         
@@ -869,7 +869,7 @@ News search: All Articles: entity mentioned at least once in the article"""
     textbox_width = Inches(15)  # Adjust the width as needed
     textbox_height = Inches(1)  # Adjust the height as needed
 
-    text_box = slide.shapes.add_textbox(Inches(0.1), Inches(1.0), textbox_width, textbox_height)
+    text_box = slide.shapes.add_textbox(Inches(1.9), Inches(1.0), textbox_width, textbox_height)
     text_frame = text_box.text_frame
     text_frame.text = "Online Media"
 
@@ -881,7 +881,7 @@ News search: All Articles: entity mentioned at least once in the article"""
 #           run.font.bold = True
             run.font.name = 'Helvetica'
             run.font.color.rgb = RGBColor(255, 255, 255)  # White color
-            paragraph.alignment = PP_ALIGN.CENTER
+            paragraph.alignment = PP_ALIGN.LEFT
             paragraph.vertical_anchor = MSO_VERTICAL_ANCHOR.MIDDLE
 
     # Add title slide after the first slide
