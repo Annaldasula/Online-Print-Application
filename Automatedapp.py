@@ -933,8 +933,8 @@ News search: All Articles: entity mentioned at least once in the article"""
     "•IIT Delhi follows IIT Madras, capturing 21% of the SOV. While its coverage is notably lower than IIT Madras, it still indicates a considerable presence in the online space.\n"
     "•IIT Bombay, IIT Kanpur, and IIT Roorkee also receive notable coverage, with 20%, 17%, and 6% of the SOV respectively.\n"
     f"•{client_name} holds a smaller share of the online conversation compared to its peers, with just 1% of the SOV and ranks 6th i.e. last in the SOV.\n"
-    "•Despite ranking lower in terms of SOV, IIT Ropar's presence indicates some level of visibility and recognition within the online media landscape.\n"
-    "•Given the relatively lower SOV compared to peers like IIT Delhi, IIT Madras, and others, there are opportunities for IIT Ropar to enhance its online presence and visibility through strategic communications efforts.\n"
+    "•Despite ranking lower in terms of SOV, {client_name}'s presence indicates some level of visibility and recognition within the online media landscape.\n"
+    "•Given the relatively lower SOV compared to peers like IIT Delhi, IIT Madras, and others, there are opportunities for {client_name} to enhance its online presence and visibility through strategic communications efforts.\n"
     f"•{client_name} has received 239 all mentions and 44 prominent articles in online media and stands last in both the SOVs.\n"
         )
     sov_text_shape = slide.shapes.add_textbox(Inches(0.3), Inches(1.0), Inches(14), Inches(0.5))
@@ -950,8 +950,8 @@ News search: All Articles: entity mentioned at least once in the article"""
     "•IIT Delhi follows IIT Madras, capturing 21% of the SOV. While its coverage is notably lower than IIT Madras, it still indicates a considerable presence in the online space.\n"
     "•IIT Bombay, IIT Kanpur, and IIT Roorkee also receive notable coverage, with 20%, 17%, and 6% of the SOV respectively.\n"
     f"•{client_name} holds a smaller share of the online conversation compared to its peers, with just 1% of the SOV and ranks 6th i.e. last in the SOV.\n"
-    "•Despite ranking lower in terms of SOV, IIT Ropar's presence indicates some level of visibility and recognition within the online media landscape.\n"
-    "•Given the relatively lower SOV compared to peers like IIT Delhi, IIT Madras, and others, there are opportunities for IIT Ropar to enhance its online presence and visibility through strategic communications efforts.\n"
+    "•Despite ranking lower in terms of SOV, {client_name}'s presence indicates some level of visibility and recognition within the online media landscape.\n"
+    "•Given the relatively lower SOV compared to peers like IIT Delhi, IIT Madras, and others, there are opportunities for {client_name} to enhance its online presence and visibility through strategic communications efforts.\n"
     f"•{client_name} has received 239 all mentions and 44 prominent articles in online media and stands last in both the SOVs.\n"
     )
     p.font.size = Pt(18)
@@ -972,9 +972,9 @@ News search: All Articles: entity mentioned at least once in the article"""
 
 
     source_text = (
-    "•The leading publications reporting on f"{client_name}" and its competitors are Times of India, contributing 561 articles, followed by Economic Times with 467 articles, and The Indian Express with 455 articles.\n"
-"•Among these ,publications covering news on f"{client_name}" specifically are The Indian Express takes the lead with 9 articles, followed by Tribune with 9 articles, and Times of India with 7 articles.\n"
-"•The top 10 publications writing articles on f"{client_name}" contribute 86% of the total 44 articles.\n" 
+    f"•The leading publications reporting on {client_name} and its competitors are Times of India, contributing 561 articles, followed by Economic Times with 467 articles, and The Indian Express with 455 articles.\n"
+f"•Among these ,publications covering news on {client_name} specifically are The Indian Express takes the lead with 9 articles, followed by Tribune with 9 articles, and Times of India with 7 articles.\n"
+f"•The top 10 publications writing articles on {client_name} contribute 86% of the total 44 articles.\n" 
 )
     source_shape = slide.shapes.add_textbox(Inches(0.3), Inches(6.1), Inches(14), Inches(1))
     source_frame = source_shape.text_frame
@@ -982,9 +982,9 @@ News search: All Articles: entity mentioned at least once in the article"""
     source_frame.clear()  # Clear any default paragraph
     p = source_frame.add_paragraph()
     p.text = (
-    "•The leading publications reporting on f"{client_name}" and its competitors are Times of India, contributing 561 articles, followed by Economic Times with 467 articles, and The Indian Express with 455 articles.\n"
-"•Among these ,publications covering news on f"{client_name}" specifically are The Indian Express takes the lead with 9 articles, followed by Tribune with 9 articles, and Times of India with 7 articles.\n"
-"•The top 10 publications writing articles on f"{client_name}" contribute 86% of the total 44 articles.\n" 
+    f"•The leading publications reporting on {client_name} and its competitors are Times of India, contributing 561 articles, followed by Economic Times with 467 articles, and The Indian Express with 455 articles.\n"
+f"•Among these ,publications covering news on {client_name} specifically are The Indian Express takes the lead with 9 articles, followed by Tribune with 9 articles, and Times of India with 7 articles.\n"
+f"•The top 10 publications writing articles on {client_name} contribute 86% of the total 44 articles.\n" 
 )
     p.font.size = Pt(18)
     p.font.name = 'Gill Sans'
@@ -1032,24 +1032,24 @@ News search: All Articles: entity mentioned at least once in the article"""
     p.font.bold = True
 
     # Add News Search text
-    news_search_text = ("•The top journalists reporting on IIT Ropar and its competitors are Sukanya Nandy from News18 with 59 articles, followed by Hemali Chapia from TOI with 44 articles, and Suramya Sunilraj from News18 with 43 articles.\n"
-                    "•Among the journalists specifically covering IIT Ropar are Munieshwer A Sagar and Deepak Yadav from Times of Indian  has authored 1 articles each  and Arushi Mishra from Hindu Business Line written 1 article.\n"
-                    "•IIT Ropar has received a total of 44 articles in news coverage. Among these, 39 i.e 88% of the articles were filed by Bureaus, while the remaining 5 i.e 12% were written by individual journalists.\n"
-                    "•A total of 387 journalists have written 1155 articles covering IIT Ropar and its competitors.\n"
-                    "•Out of which, 5 journalists have specifically written 5 articles mentioning IIT Ropar i.e of the total journalists writing on IIT Ropar and its competitors only 1% of them have mentioned IIT Ropar in their articles.\n"
-                    "•While this constitutes a very less number, there is an large opportunity for IIT Ropar to engage with the remaining 882 journalists to enhance its news coverage and reach.\n"
+    news_search_text = (f"•The top journalists reporting on {client_name} and its competitors are Sukanya Nandy from News18 with 59 articles, followed by Hemali Chapia from TOI with 44 articles, and Suramya Sunilraj from News18 with 43 articles.\n"
+                    f"•Among the journalists specifically covering {client_name} are Munieshwer A Sagar and Deepak Yadav from Times of Indian  has authored 1 articles each  and Arushi Mishra from Hindu Business Line written 1 article.\n"
+                    f"•{client_name} has received a total of 44 articles in news coverage. Among these, 39 i.e 88% of the articles were filed by Bureaus, while the remaining 5 i.e 12% were written by individual journalists.\n"
+                    f"•A total of 387 journalists have written 1155 articles covering {client_name} and its competitors.\n"
+                    f"•Out of which, 5 journalists have specifically written 5 articles mentioning {client_name} i.e of the total journalists writing on IIT Ropar and its competitors only 1% of them have mentioned IIT Ropar in their articles.\n"
+                    f"•While this constitutes a very less number, there is an large opportunity for {client_name} to engage with the remaining 882 journalists to enhance its news coverage and reach.\n"
                    )
     news_search_shape = slide.shapes.add_textbox(Inches(0.3), Inches(1.0), Inches(14), Inches(0.5))
     news_search_frame = news_search_shape.text_frame
     news_search_frame.word_wrap = True
     news_search_frame.clear()  # Clear any default paragraph
     p = news_search_frame.add_paragraph()
-    p.text = ("•The top journalists reporting on IIT Ropar and its competitors are Sukanya Nandy from News18 with 59 articles, followed by Hemali Chapia from TOI with 44 articles, and Suramya Sunilraj from News18 with 43 articles.\n"
-                    "•Among the journalists specifically covering IIT Ropar are Munieshwer A Sagar and Deepak Yadav from Times of Indian  has authored 1 articles each  and Arushi Mishra from Hindu Business Line written 1 article.\n"
-                    "•IIT Ropar has received a total of 44 articles in news coverage. Among these, 39 i.e 88% of the articles were filed by Bureaus, while the remaining 5 i.e 12% were written by individual journalists.\n"
-                    "•A total of 387 journalists have written 1155 articles covering IIT Ropar and its competitors.\n"
-                    "•Out of which, 5 journalists have specifically written 5 articles mentioning IIT Ropar i.e of the total journalists writing on IIT Ropar and its competitors only 1% of them have mentioned IIT Ropar in their articles.\n"
-                    "•While this constitutes a very less number, there is an large opportunity for IIT Ropar to engage with the remaining 882 journalists to enhance its news coverage and reach.\n"
+    p.text = (f"•The top journalists reporting on {client_name} and its competitors are Sukanya Nandy from News18 with 59 articles, followed by Hemali Chapia from TOI with 44 articles, and Suramya Sunilraj from News18 with 43 articles.\n"
+                    f"•Among the journalists specifically covering {client_name} are Munieshwer A Sagar and Deepak Yadav from Times of Indian  has authored 1 articles each  and Arushi Mishra from Hindu Business Line written 1 article.\n"
+                    f"•{client_name} has received a total of 44 articles in news coverage. Among these, 39 i.e 88% of the articles were filed by Bureaus, while the remaining 5 i.e 12% were written by individual journalists.\n"
+                    f"•A total of 387 journalists have written 1155 articles covering {client_name} and its competitors.\n"
+                    f"•Out of which, 5 journalists have specifically written 5 articles mentioning {client_name} i.e of the total journalists writing on IIT Ropar and its competitors only 1% of them have mentioned IIT Ropar in their articles.\n"
+                    f"•While this constitutes a very less number, there is an large opportunity for {client_name} to engage with the remaining 882 journalists to enhance its news coverage and reach.\n"
                    )
     p.font.size = Pt(18)
     p.font.name = 'Gill Sans'
@@ -1067,18 +1067,18 @@ News search: All Articles: entity mentioned at least once in the article"""
     p.font.underline = True
     p.font.bold = True
 
-    news_search_text = ("•Top Publication Types writing on IIT Ropar are General and  Business & Financials they both contribute 90% of the total news coverage on IIT Ropar.\n"
+    news_search_text = (f"•Top Publication Types writing on {client_name} are General and  Business & Financials they both contribute 90% of the total news coverage on IIT Ropar.\n"
 "•IIT Madras and IIT Delhi dominates across all publication types, especially in general, business ,technology, and digital-first publications.\n"
-"•IIT Ropar may find value in engaging more with General and Business along with technology, and digital-first publications to expand her reach and visibility among broader audiences.\n"
+f"•{client_name} may find value in engaging more with General and Business along with technology, and digital-first publications to expand her reach and visibility among broader audiences.\n"
                    )
     news_search_shape = slide.shapes.add_textbox(Inches(0.3), Inches(6.0), Inches(14), Inches(0.5))
     news_search_frame = news_search_shape.text_frame
     news_search_frame.word_wrap = True
     news_search_frame.clear()  # Clear any default paragraph
     p = news_search_frame.add_paragraph()
-    p.text = ("•Top Publication Types writing on IIT Ropar are General and  Business & Financials they both contribute 90% of the total news coverage on IIT Ropar.\n"
+    p.text = (f"•Top Publication Types writing on {client_name} are General and  Business & Financials they both contribute 90% of the total news coverage on IIT Ropar.\n"
 "•IIT Madras and IIT Delhi dominates across all publication types, especially in general, business ,technology, and digital-first publications.\n"
-"•IIT Ropar may find value in engaging more with General and Business along with technology, and digital-first publications to expand her reach and visibility among broader audiences.\n"
+f"•{client_name} may find value in engaging more with General and Business along with technology, and digital-first publications to expand her reach and visibility among broader audiences.\n"
                    )
     p.font.size = Pt(18)
     p.font.name = 'Gill Sans'
