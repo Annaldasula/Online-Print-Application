@@ -920,14 +920,14 @@ News search: All Articles: entity mentioned at least once in the article"""
     p.font.bold = True
 
     sov_text = (
-    "•f"Client {client_name}" and its peers collectively received a total of 5017 prominent news mentions online during the specified time period.\n"
+    "f"•{client_name}" and its peers collectively received a total of 5017 prominent news mentions online during the specified time period.\n"
     "•Among these, IIT Madras dominates the conversation with 35% of the total SOV, indicating significant media coverage and visibility.\n"
     "•IIT Delhi follows IIT Madras, capturing 21% of the SOV. While its coverage is notably lower than IIT Madras, it still indicates a considerable presence in the online space.\n"
     "•IIT Bombay, IIT Kanpur, and IIT Roorkee also receive notable coverage, with 20%, 17%, and 6% of the SOV respectively.\n"
     "•IIT Ropar holds a smaller share of the online conversation compared to its peers, with just 1% of the SOV and ranks 6th i.e. last in the SOV.\n"
     "•Despite ranking lower in terms of SOV, IIT Ropar's presence indicates some level of visibility and recognition within the online media landscape.\n"
     "•Given the relatively lower SOV compared to peers like IIT Delhi, IIT Madras, and others, there are opportunities for IIT Ropar to enhance its online presence and visibility through strategic communications efforts.\n"
-    "•f"Client {client_name}" has received 239 all mentions and 44 prominent articles in online media and stands last in both the SOVs.\n"
+    "f"•{client_name}" has received 239 all mentions and 44 prominent articles in online media and stands last in both the SOVs.\n"
         )
     sov_text_shape = slide.shapes.add_textbox(Inches(0.3), Inches(1.0), Inches(14), Inches(0.5))
     sov_text_frame = sov_text_shape.text_frame
