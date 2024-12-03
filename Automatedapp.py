@@ -1126,10 +1126,13 @@ f"•{client_name} may find value in engaging more with General and Business alo
     p.font.bold = True
 
 
-    time_period_text = ("•The total number of news articles over the period is 5311. There is noticeable fluctuation in coverage from month to month, with periods of both increase and decline.\n"
-"•Sept 2023 saw the highest number of articles, with 524 mentions. This spike suggests a significant event or increased media focus on Steel Industry during that month.\n"
-"•Dec 2023 has the lowest coverage so far, with only 337 mentions.\n"
-"•There was  peak in Sept-23 due to following news:The increase in volume is due to Prime Minister Narendra Modi's visit to Chhattisgarh and the launch of multiple development projects, including the dedication of the NMDC Steel Plant in Bastar. The projects are expected to provide employment opportunities and contribute to the reduction of debt burden. The political controversy surrounding the Nagarnar Steel Plant and the statements made by Chief Minister Bhupesh Baghel have also contributed to the spike in volume\n"
+    time_period_text = (f"•{client_name} consistently maintains a high level of coverage throughout the months, with peaks in Feb-24 and May-2024.\n"
+"•These spikes indicate significant media attention and potentially notable events or announcements associated with her during those periods.\n"
+f"•{client_name}'s received very less coverage in every month, with peak in Sept-23.\n"
+f"•While {client_name}'s coverage is relatively lower compared to IIT Madras and Delhi, it still experiences spikes indicating periods of increased media visibility.\n"
+f"•{client_name} witnessed its highest news coverage in Sept -2023, with 7 articles. The news during this period mainly revolved around topics such as:\n"
+"1.IIT Ropar Placements: Average salary, placed students increase despite Covid slowdown\n"
+"2.Purohit allows IIT-Ropar to set up campus in Edu City.\n"
                    )
     time_period_shape = slide.shapes.add_textbox(Inches(0.3), Inches(1.4), Inches(14), Inches(0.5))
     time_period_frame = time_period_shape.text_frame
@@ -1138,11 +1141,14 @@ f"•{client_name} may find value in engaging more with General and Business alo
     time_period_frame.clear() 
 
     p = time_period_frame.add_paragraph()
-    p.text = ("•The total number of news articles over the period is 5311. There is noticeable fluctuation in coverage from month to month, with periods of both increase and decline.\n"
-"•Sept 2023 saw the highest number of articles, with 524 mentions. This spike suggests a significant event or increased media focus on Steel Industry during that month.\n"
-"•Dec 2023 has the lowest coverage so far, with only 337 mentions.\n"
-"•There was  peak in Sept-23 due to following news:The increase in volume is due to Prime Minister Narendra Modi's visit to Chhattisgarh and the launch of multiple development projects, including the dedication of the NMDC Steel Plant in Bastar. The projects are expected to provide employment opportunities and contribute to the reduction of debt burden. The political controversy surrounding the Nagarnar Steel Plant and the statements made by Chief Minister Bhupesh Baghel have also contributed to the spike in volume\n"
-                   )
+    p.text = (f"•{client_name} consistently maintains a high level of coverage throughout the months, with peaks in Feb-24 and May-2024.\n"
+"•These spikes indicate significant media attention and potentially notable events or announcements associated with her during those periods.\n"
+f"•{client_name}'s received very less coverage in every month, with peak in Sept-23.\n"
+f"•While {client_name}'s coverage is relatively lower compared to IIT Madras and Delhi, it still experiences spikes indicating periods of increased media visibility.\n"
+f"•{client_name} witnessed its highest news coverage in Sept -2023, with 7 articles. The news during this period mainly revolved around topics such as:\n"
+"1.IIT Ropar Placements: Average salary, placed students increase despite Covid slowdown\n"
+"2.Purohit allows IIT-Ropar to set up campus in Edu City.\n"
+             )
     p.font.size = Pt(18)
     p.font.name = 'Gill Sans'
 
