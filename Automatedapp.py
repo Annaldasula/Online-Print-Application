@@ -777,7 +777,7 @@ News search: All Articles: entity mentioned at least once in the article"""
 
     text_box = slide.shapes.add_textbox(Inches(0.1), Inches(1.0), textbox_width, textbox_height)
     text_frame = text_box.text_frame
-    text_frame.text = [f"{client_name}"\n,
+    text_frame.text = [f"{client_name}\n",
                       "News AnalysisBy Media Research & Analytics Team"]
 
         
