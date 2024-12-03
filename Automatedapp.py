@@ -972,9 +972,9 @@ News search: All Articles: entity mentioned at least once in the article"""
 
 
     source_text = (
-    "•The leading publications reporting on f{client_name} and its competitors are Times of India, contributing 561 articles, followed by Economic Times with 467 articles, and The Indian Express with 455 articles.\n"
-"•Among these ,publications covering news on f{client_name} specifically are The Indian Express takes the lead with 9 articles, followed by Tribune with 9 articles, and Times of India with 7 articles.\n"
-"•The top 10 publications writing articles on f{client_name} contribute 86% of the total 44 articles.\n" 
+    "•The leading publications reporting on f"{client_name}" and its competitors are Times of India, contributing 561 articles, followed by Economic Times with 467 articles, and The Indian Express with 455 articles.\n"
+"•Among these ,publications covering news on f"{client_name}" specifically are The Indian Express takes the lead with 9 articles, followed by Tribune with 9 articles, and Times of India with 7 articles.\n"
+"•The top 10 publications writing articles on f"{client_name}" contribute 86% of the total 44 articles.\n" 
 )
     source_shape = slide.shapes.add_textbox(Inches(0.3), Inches(6.1), Inches(14), Inches(1))
     source_frame = source_shape.text_frame
@@ -982,9 +982,9 @@ News search: All Articles: entity mentioned at least once in the article"""
     source_frame.clear()  # Clear any default paragraph
     p = source_frame.add_paragraph()
     p.text = (
-    "•The leading publications reporting on IIT Ropar and its competitors are Times of India, contributing 561 articles, followed by Economic Times with 467 articles, and The Indian Express with 455 articles.\n"
-"•Among these ,publications covering news on IIT Ropar specifically are The Indian Express takes the lead with 9 articles, followed by Tribune with 9 articles, and Times of India with 7 articles.\n"
-"•The top 10 publications writing articles on IIT Ropar contribute 86% of the total 44 articles.\n" 
+    "•The leading publications reporting on f"{client_name}" and its competitors are Times of India, contributing 561 articles, followed by Economic Times with 467 articles, and The Indian Express with 455 articles.\n"
+"•Among these ,publications covering news on f"{client_name}" specifically are The Indian Express takes the lead with 9 articles, followed by Tribune with 9 articles, and Times of India with 7 articles.\n"
+"•The top 10 publications writing articles on f"{client_name}" contribute 86% of the total 44 articles.\n" 
 )
     p.font.size = Pt(18)
     p.font.name = 'Gill Sans'
