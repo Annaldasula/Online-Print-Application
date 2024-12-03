@@ -760,7 +760,7 @@ News search: All Articles: entity mentioned at least once in the article"""
     textbox_width = Inches(15)  # Adjust the width as needed
     textbox_height = Inches(1)  # Adjust the height as needed
 
-    text_box = slide.shapes.add_textbox(Inches(1), Inches(0.3), textbox_width, textbox_height)
+    text_box = slide.shapes.add_textbox(Inches(0.5), Inches(0.6), textbox_width, textbox_height)
     text_frame = text_box.text_frame
     text_frame.text = "Client Name"
         
