@@ -760,9 +760,17 @@ News search: All Articles: entity mentioned at least once in the article"""
     textbox_width = Inches(15)  # Adjust the width as needed
     textbox_height = Inches(1)  # Adjust the height as needed
 
+    # Filter or select the row for which you need the client name
+    selected_row = data.iloc[0]  # Assuming first row is selected
+    entity = selected_row["Entity"]
+
+    # Extract the brand name from the "Entity" column (after "Client-" if present)
+    client_name = entity.split("Client-")[-1]
+
     text_box = slide.shapes.add_textbox(Inches(0.2), Inches(1.0), textbox_width, textbox_height)
     text_frame = text_box.text_frame
-    text_frame.text = "Client Name"
+    text_frame.text = f"Client {client_name}"
+
         
     # Set font size to 30 and make the text bold and white
     for paragraph in text_frame.paragraphs:
