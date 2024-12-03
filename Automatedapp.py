@@ -761,11 +761,19 @@ News search: All Articles: entity mentioned at least once in the article"""
     textbox_height = Inches(1)  # Adjust the height as needed
 
     # Filter or select the row for which you need the client name
-    # selected_row = data.iloc[0]  # Assuming first row is selected
-    entity = ["Entity"]
+    filtered_rows = data[data["Entity"].str.contains("Client-", na=False)]
+    
+    # Check if any rows match and select the first one
+    if not filtered_rows.empty:
+        selected_row = filtered_rows.iloc[0]  # Get the first matching row
+        entity = selected_row["Entity"]
+        # Extract the brand name from the "Entity" column (after "Client-")
+        client_name = entity.split("Client-")[-1]
+    else:
+        client_name = "Unknown Client"
 
-    # Extract the brand name from the "Entity" column (after "Client-" if present)
-    client_name = entity.split("Client-")[-1]
+    # # Extract the brand name from the "Entity" column (after "Client-" if present)
+    # client_name = entity.split("Client-")[-1]
 
     text_box = slide.shapes.add_textbox(Inches(0.1), Inches(1.0), textbox_width, textbox_height)
     text_frame = text_box.text_frame
