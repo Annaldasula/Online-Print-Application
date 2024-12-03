@@ -1184,7 +1184,7 @@ f"•{client_name} witnessed its highest news coverage in Sept -2023, with 7 art
     f"•Among the journalists specifically covering {client_name}, Munieshwer A Sagar and Deepak Yadav from Times of India have authored 1 article each, and Arushi Mishra from Hindu Business Line wrote 1 article.\n"
     f"•{client_name} has received a total of 44 articles in news coverage. Among these, 39 i.e., 88% of the articles were filed by Bureaus, while the remaining 5 i.e., 12% were written by individual journalists.\n"
     ,
-                   f "•Top Publication Types writing on {client_name} are General and Business & Financials; they both contribute 90% of the total news coverage on IIT Ropar.\n"
+                   f"•Top Publication Types writing on {client_name} are General and Business & Financials; they both contribute 90% of the total news coverage on IIT Ropar.\n"
     f"•IIT Madras and IIT Delhi dominate across all publication types, especially in general, business, technology, and digital-first publications.\n"
     f"•{client_name} may find value in engaging more with General and Business along with technology, and digital-first publications to expand its reach and visibility among broader audiences.\n",
                         
