@@ -775,7 +775,7 @@ News search: All Articles: entity mentioned at least once in the article"""
     # # Extract the brand name from the "Entity" column (after "Client-" if present)
     # client_name = entity.split("Client-")[-1]
 
-    text_box = slide.shapes.add_textbox(Inches(0.9), Inches(1.0), textbox_width, textbox_height)
+    text_box = slide.shapes.add_textbox(Inches(1.5), Inches(1.0), textbox_width, textbox_height)
     text_frame = text_box.text_frame
     text_frame.text = f"{client_name} News Analysis By Media Research & Analytics Team"
 
