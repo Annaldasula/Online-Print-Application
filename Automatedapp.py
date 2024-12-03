@@ -1162,35 +1162,36 @@ f"•{client_name} witnessed its highest news coverage in Sept -2023, with 7 art
         pubs_table1 = pubs_table.head(10)
         Jour_table1 = Jour_table.head(10)
         dfs = [Entity_SOV3, sov_dt1, pubs_table1, Jour_table1, PType_Entity, Jour_Comp, Jour_Client]
-        table_titles = ['SOV Table', 'Month-on-Month Table', 'Publication Table', 'Journalist Table',
-                    'Pub Type and Entity Table','Jour writing on Comp and not on Client', 'Jour writing on Client and not on Comp'
+        table_titles = [f'SOV Table of {client_name} and competition', f'Month-on-Month Table of {client_name} and competition', f'Publication Table on {client_name} and competition', f'Journalist writing on {client_name} and competition',
+                    f'Publication Types writing on {client_name} and competition',f'Journalists writing on Comp and not on {client_name}', f'Journalists writing on {client_name} and not on Comp'
                     ]
-        textbox_text = [ "•IIT Ropar and its peers collectively received a total of 19932 news mentions online during the specified time period.\n"
+        textbox_text = [ f"•{client_name} and its peers collectively received a total of 19932 news mentions online during the specified time period.\n"
     "•Among these, IIT Madras dominates the conversation with 28% of the total SOV, indicating significant media coverage and visibility.\n"
     "•IIT Delhi follows IIT Madras, capturing 25% of the SOV. While its coverage is notably lower than IIT Madras, it still indicates a considerable presence in the online space.\n"
     "•IIT Bombay, IIT Kanpur, and IIT Roorkee also receive notable coverage, with 21%, 17%, and 7% of the SOV respectively.\n"
-    "•IIT Ropar holds a smaller share of the online conversation compared to its peers, with just 1% of the SOV and ranks 6th i.e., last in the SOV.\n"
-    "•Despite ranking lower in terms of SOV, IIT Ropar's presence indicates some level of visibility and recognition within the online media landscape.",
-        "•IIT Ropar witnessed its highest news coverage in Sept -2023, with 7 articles. The news during this period mainly revolved around topics such as:\n"
+    f"•{client_name} holds a smaller share of the online conversation compared to its peers, with just 1% of the SOV and ranks 6th i.e., last in the SOV.\n"
+    f"•Despite ranking lower in terms of SOV, {client_name}'s presence indicates some level of visibility and recognition within the online media landscape.",
+        f"•{client_name} witnessed its highest news coverage in Sept -2023, with 7 articles. The news during this period mainly revolved around topics such as:\n"
     "1.IIT Ropar Placements: Average salary, placed students increase despite Covid slowdown\n"
     "2.Purohit allows IIT-Ropar to set up campus in Edu City\n"
     "3.UPES Runway Incubator Signs MoU With IIT Ropar’s Ihub – Awadh\n"
     "4.SKUAST-K, IIT Ropar hold 2-day event"
-    , "•The leading publications reporting on IIT Ropar and its competitors are Times of India, contributing 561 articles, followed by Economic Times with 467 articles, and The Indian Express with 455 articles.\n"
-    "•Among these, publications covering news on IIT Ropar specifically are The Indian Express with 9 articles, followed by Tribune with 9 articles, and Times of India with 7 articles.\n"
-    "•The top 10 publications writing articles on IIT Ropar contribute 86% of the total 44 articles.",
-    "•The top journalists reporting on IIT Ropar and its competitors are Sukanya Nandy from News18 with 59 articles, followed by Hemali Chapia from TOI with 44 articles, and Suramya Sunilraj from News18 with 43 articles.\n"
-    "•Among the journalists specifically covering IIT Ropar, Munieshwer A Sagar and Deepak Yadav from Times of India have authored 1 article each, and Arushi Mishra from Hindu Business Line wrote 1 article.\n"
-    "•IIT Ropar has received a total of 44 articles in news coverage. Among these, 39 i.e., 88% of the articles were filed by Bureaus, while the remaining 5 i.e., 12% were written by individual journalists.\n"
+    , 
+    f"•The leading publications reporting on {client_name} and its competitors are Times of India, contributing 561 articles, followed by Economic Times with 467 articles, and The Indian Express with 455 articles.\n"
+    f"•Among these, publications covering news on {client_name} specifically are The Indian Express with 9 articles, followed by Tribune with 9 articles, and Times of India with 7 articles.\n"
+    f"•The top 10 publications writing articles on {client_name} contribute 86% of the total 44 articles.",
+    f"•The top journalists reporting on {client_name} and its competitors are Sukanya Nandy from News18 with 59 articles, followed by Hemali Chapia from TOI with 44 articles, and Suramya Sunilraj from News18 with 43 articles.\n"
+    f"•Among the journalists specifically covering {client_name}, Munieshwer A Sagar and Deepak Yadav from Times of India have authored 1 article each, and Arushi Mishra from Hindu Business Line wrote 1 article.\n"
+    f"•{client_name} has received a total of 44 articles in news coverage. Among these, 39 i.e., 88% of the articles were filed by Bureaus, while the remaining 5 i.e., 12% were written by individual journalists.\n"
     ,
-                    "•Top Publication Types writing on IIT Ropar are General and Business & Financials; they both contribute 90% of the total news coverage on IIT Ropar.\n"
-    "•IIT Madras and IIT Delhi dominate across all publication types, especially in general, business, technology, and digital-first publications.\n"
-    "•IIT Ropar may find value in engaging more with General and Business along with technology, and digital-first publications to expand its reach and visibility among broader audiences.\n",
+                   f "•Top Publication Types writing on {client_name} are General and Business & Financials; they both contribute 90% of the total news coverage on IIT Ropar.\n"
+    f"•IIT Madras and IIT Delhi dominate across all publication types, especially in general, business, technology, and digital-first publications.\n"
+    f"•{client_name} may find value in engaging more with General and Business along with technology, and digital-first publications to expand its reach and visibility among broader audiences.\n",
                         
-"•The  journalists reporting on IIT Ropar and not on its competitors are Navjeevan Gopal from The Indian Express with 1 article and Munieshwer A Sagar from TOI with 1 articles.\n",
+f"•The  journalists reporting on {client_name} and not on its competitors are Navjeevan Gopal from The Indian Express with 1 article and Munieshwer A Sagar from TOI with 1 articles.\n",
 
- "•Top journalists covering competitors rather than IIT Ropar are Sukanya Nandy from News18 with 59 articles, followed by Hemali Chapia from TOI with 44 articles, and Suramya Sunilraj from News18 with 43 articles. \n"
-"•These journalists have not written any articles on IIT Ropar so there is an opportunity for IIT Ropar to engage with these journalists to broaden its coverage and influence within the industry.\n"
+f"•Top journalists covering competitors rather than {client_name} are Sukanya Nandy from News18 with 59 articles, followed by Hemali Chapia from TOI with 44 articles, and Suramya Sunilraj from News18 with 43 articles. \n"
+f"•These journalists have not written any articles on {client_name} so there is an opportunity for {client_name} to engage with these journalists to broaden its coverage and influence within the industry.\n"
                        ]
         
         # Create a new PowerPoint presentation
