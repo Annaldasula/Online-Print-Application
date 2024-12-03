@@ -761,8 +761,8 @@ News search: All Articles: entity mentioned at least once in the article"""
     textbox_height = Inches(1)  # Adjust the height as needed
 
     # Filter or select the row for which you need the client name
-    selected_row = data.iloc[0]  # Assuming first row is selected
-    entity = selected_row["Entity"]
+    # selected_row = data.iloc[0]  # Assuming first row is selected
+    entity = ["Entity"]
 
     # Extract the brand name from the "Entity" column (after "Client-" if present)
     client_name = entity.split("Client-")[-1]
