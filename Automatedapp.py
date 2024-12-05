@@ -900,6 +900,21 @@ if file:
 
         finaldata['Topic'] = finaldata['Headline'].apply(classify_topic)
 
+        # Filter or select the row for which you need the client name
+        filtered_rows = data[data["Entity"].str.contains("Client-", na=False)]
+    
+        # Check if any rows match and select the first one
+        if not filtered_rows.empty:
+            selected_row = filtered_rows.iloc[0]  # Get the first matching row
+            entity = selected_row["Entity"]
+            # Extract the brand name from the "Entity" column (after "Client-")
+            client_name = entity.split("Client-")[-1]
+        else:
+            client_name = "Unknown Client"
+
+        # Extract the brand name from the "Entity" column (after "Client-" if present)
+        client_name = entity.split("Client-")[-1]
+
         dfs = [Entity_SOV3, sov_dt1, pubs_table, Jour_table, PType_Entity, Jour_Comp, Jour_Client]
         comments = ['SOV Table', 'Month-on-Month Table', 'Publication Table', 'Journalist Table','PubType Entity Table',
                    'Jour writing on Comp and not on Client', 'Jour writing on Client and not on Comp']
@@ -984,7 +999,7 @@ if file:
                         'Pub Type and Entity Table','Jour writing on Comp and not on Client', 'Jour writing on Client and not on Comp'
                         ]
             
-            entity_info = """Entity:
+            entity_info = f"""Entity:{client_name}
 Time Period of analysis: 19th April 2023 to 18th April 2024
 Source: (Online) Meltwater, Select 100 online publications, which include General mainlines, Business and Financial publications, news age media, technology publications.
 News search: All Articles: entity mentioned at least once in the article"""
@@ -1019,20 +1034,7 @@ News search: All Articles: entity mentioned at least once in the article"""
     textbox_width = Inches(15)  # Adjust the width as needed
     textbox_height = Inches(1)  # Adjust the height as needed
 
-    # Filter or select the row for which you need the client name
-    filtered_rows = data[data["Entity"].str.contains("Client-", na=False)]
     
-    # Check if any rows match and select the first one
-    if not filtered_rows.empty:
-        selected_row = filtered_rows.iloc[0]  # Get the first matching row
-        entity = selected_row["Entity"]
-        # Extract the brand name from the "Entity" column (after "Client-")
-        client_name = entity.split("Client-")[-1]
-    else:
-        client_name = "Unknown Client"
-
-    # # Extract the brand name from the "Entity" column (after "Client-" if present)
-    # client_name = entity.split("Client-")[-1]
 
     text_box = slide.shapes.add_textbox(Inches(1.9), Inches(1.0), textbox_width, textbox_height)
     text_frame = text_box.text_frame
