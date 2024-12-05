@@ -603,9 +603,9 @@ if file:
         Jour_table1 = Jour_table.head(10)
 
         # Extract the top 3 publications and their counts
-        topj_1 = Jour_Entity.iloc[0:1]  # First publication
-        topj_2 = Jour_Entity.iloc[1:2]  # Second publication
-        topj_3 = Jour_Entity.iloc[2:3]  # Third publication
+        topj_1 = Jour_table1.iloc[0:1]  # First publication
+        topj_2 = Jour_table1.iloc[1:2]  # Second publication
+        topj_3 = Jour_table1.iloc[2:3]  # Third publication
 
         # Save them in separate DataFrames
         df_topj1 = topj_1.reset_index(drop=True)
@@ -613,13 +613,13 @@ if file:
         df_topj3 = topj_3.reset_index(drop=True)
 
         # Extract publication name and count for the top 3
-        topj_1_name = df_topj1.iloc[0]["Publication Type"]
+        topj_1_name = df_topj1.iloc[0]["Journalist"]
         topj_1_count = df_topj1.iloc[0]["Total"]
 
-        topj_2_name = df_topj2.iloc[0]["Publication Type"]
+        topj_2_name = df_topj2.iloc[0]["Journalist"]
         topj_2_count = df_topj2.iloc[0]["Total"]
 
-        topj_3_name = df_topj3.iloc[0]["Publication Type"]
+        topj_3_name = df_topj3.iloc[0]["Journalist"]
         topj_3_count = df_topj3.iloc[0]["Total"]
 
         # Find columns containing the word 'Client'
