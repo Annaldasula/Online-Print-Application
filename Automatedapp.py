@@ -550,10 +550,10 @@ if file:
 
 
         # Dynamically identify the client column
-        client_column = [col for col in pubs_table.columns if col.startswith("Client-")][0]
+        client_column = [col for col in pubs_table1.columns if col.startswith("Client-")][0]
 
         # Select the "Publication Name" column and the dynamically identified client column
-        selected_columns = pubs_table[["Publication Name", client_column]]
+        selected_columns = pubs_table1[["Publication Name", client_column]]
         
         selected_columns = selected_columns.iloc[:-1]
         selected_columns = selected_columns.sort_values(by=client_column, ascending=False)
