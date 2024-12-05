@@ -681,11 +681,31 @@ if file:
         topj_3_name = df_topj3.iloc[0]["Journalist"]
         topj_3_count = df_topj3.iloc[0]["Total"]
 
+        # Extract the top 3 publications and their counts
+        topjt_1 = Jour_table1.iloc[0:1]  # First publication
+        topjt_2 = Jour_table1.iloc[1:2]  # Second publication
+        topjt_3 = Jour_table1.iloc[2:3]  # Third publication
+
+        # Save them in separate DataFrames
+        df_topjt1 = topjt_1.reset_index(drop=True)
+        df_topjt2 = topjt_2.reset_index(drop=True)
+        df_topjt3 = topjt_3.reset_index(drop=True)
+
+        # Extract publication name and count for the top 3
+        topjt_1_name = df_topjt1.iloc[0]["Publication Name"]
+        # top_1_count = df_topjt1.iloc[0]["Total"]
+
+        topjt_2_name = df_topjt2.iloc[0]["Publication Name"]
+        # top_2_count = df_topjt2.iloc[0]["Total"]
+
+        topjt_3_name = df_topjt3.iloc[0]["Publication Name"]
+        # top_3_count = df_topjt3.iloc[0]["Total"]
+
         # Dynamically identify the client column
         client_columns = [col for col in Jour_table1.columns if col.startswith("Client-")][0]
 
         # Select the "Publication Name" column and the dynamically identified client column
-        selected_column = Jour_table1[["Journalist", client_columns]]
+        selected_column = Jour_table1[["Journalist","Publication Name", client_columns]]
         
         selected_column = selected_column.iloc[:-1]
         selected_column = selected_column.sort_values(by=client_columns, ascending=False)
@@ -709,6 +729,26 @@ if file:
 
         topjr_3_name = df_topjr3.iloc[0]["Journalist"]
         topjr_3_count = df_topjr3.iloc[0][client_column]
+
+        # Extract the top 3 publications and their counts
+        topjz_1 = selected_column.iloc[0:1]  # First publication
+        topjz_2 = selected_columniloc[1:2]  # Second publication
+        topjz_3 = selected_column.iloc[2:3]  # Third publication
+
+        # Save them in separate DataFrames
+        df_topjz1 = topjz_1.reset_index(drop=True)
+        df_topjz2 = topjz_2.reset_index(drop=True)
+        df_topjz3 = topjz_3.reset_index(drop=True)
+
+        # Extract publication name and count for the top 3
+        topjz_1_name = df_topjz1.iloc[0]["Publication Name"]
+        # top_1_count = df_topjt1.iloc[0]["Total"]
+
+        topjz_2_name = df_topjz2.iloc[0]["Publication Name"]
+        # top_2_count = df_topjt2.iloc[0]["Total"]
+
+        topjz_3_name = df_topjz3.iloc[0]["Publication Name"]
+        # top_3_count = df_topjt3.iloc[0]["Total"]
 
         # Find columns containing the word 'Client'
         client_columns = [col for col in Jour_table.columns if 'Client' in col]
@@ -742,6 +782,26 @@ if file:
 
         topjc_3_name = df_topjc3.iloc[0]["Journalist"]
         topjc_3_count = df_topjc3.iloc[0]["Total"]
+
+        # Extract the top 3 publications and their counts
+        topjp_1 = Jour_Comp.iloc[0:1]  # First publication
+        topjp_2 = Jour_Comp.iloc[1:2]  # Second publication
+        topjp_3 = Jour_Comp.iloc[2:3]  # Third publication
+
+        # Save them in separate DataFrames
+        df_topjp1 = topjp_1.reset_index(drop=True)
+        df_topjp2 = topjp_2.reset_index(drop=True)
+        df_topjp3 = topjp_3.reset_index(drop=True)
+
+        # Extract publication name and count for the top 3
+        topjp_1_name = df_topjp1.iloc[0]["Publication Name"]
+        # top_1_count = df_topjp1.iloc[0]["Total"]
+
+        topjp_2_name = df_topjp2.iloc[0]["Publication Name"]
+        # top_2_count = df_topjp2.iloc[0]["Total"]
+
+        topjp_3_name = df_topjp3.iloc[0]["Publication Name"]
+        # top_3_count = df_topjp3.iloc[0]["Total"]
 
         
         
@@ -1207,8 +1267,8 @@ f"•The top 10 publications writing articles on {client_name} contribute 86% of
     p.font.bold = True
 
     # Add News Search text
-    news_search_text = (f"•The top journalists reporting on {client_name} and its competitors are {topj_1_name} from News18 with {topj_1_count} articles, followed by {topj_2_name} from TOI with {topj_2_count} articles, and {topj_3_name} from News18 with {topj_3_count} articles.\n"
-                    f"•Among the journalists specifically covering {client_name} are {topjr_1_name} from News18 with {topjr_1_count} articles , {topjr_2_name} from Times of Indian  has authored {topjr_2_count} articles  and {topjr_3_name} from Hindu Business Line written {topjr_3_count} article.\n"
+    news_search_text = (f"•The top journalists reporting on {client_name} and its competitors are {topj_1_name} from {topjt_1_name} with {topj_1_count} articles, followed by {topj_2_name} from {topjt_2_name} with {topj_2_count} articles, and {topj_3_name} from {topjt_3_name} with {topj_3_count} articles.\n"
+                    f"•Among the journalists specifically covering {client_name} are {topjr_1_name} from {topjz_1_name} with {topjr_1_count} articles , {topjr_2_name} from {topjz_2_name} has authored {topjr_2_count} articles  and {topjr_3_name} from {topjz_3_name} written {topjr_3_count} article.\n"
                     f"•{client_name} has received a total of 44 articles in news coverage. Among these, 39 i.e 88% of the articles were filed by Bureaus, while the remaining 5 i.e 12% were written by individual journalists.\n"
                     f"•A total of 387 journalists have written 1155 articles covering {client_name} and its competitors.\n"
                     f"•Out of which, 5 journalists have specifically written 5 articles mentioning {client_name} i.e of the total journalists writing on IIT Ropar and its competitors only 1% of them have mentioned IIT Ropar in their articles.\n"
@@ -1219,8 +1279,8 @@ f"•The top 10 publications writing articles on {client_name} contribute 86% of
     news_search_frame.word_wrap = True
     news_search_frame.clear()  # Clear any default paragraph
     p = news_search_frame.add_paragraph()
-    p.text = (f"•The top journalists reporting on {client_name} and its competitors are {topj_1_name} from News18 with {topj_1_count} articles, followed by {topj_2_name} from TOI with {topj_2_count} articles, and {topj_3_name} from News18 with {topj_3_count} articles.\n"
-                    f"•Among the journalists specifically covering {client_name} are {topjr_1_name} from News18 with {topjr_1_count} articles , {topjr_2_name} from Times of Indian  has authored {topjr_2_count} articles  and {topjr_3_name} from Hindu Business Line written {topjr_3_count} article.\n"
+    p.text = (f"•The top journalists reporting on {client_name} and its competitors are {topj_1_name} from {topjt_1_name} with {topj_1_count} articles, followed by {topj_2_name} from {topjt_2_name} with {topj_2_count} articles, and {topj_3_name} from {topjt_3_name} with {topj_3_count} articles.\n"
+                    f"•Among the journalists specifically covering {client_name} are {topjr_1_name} from {topjz_1_name} with {topjr_1_count} articles , {topjr_2_name} from {topjz_2_name} has authored {topjr_2_count} articles  and {topjr_3_name} from {topjz_3_name} written {topjr_3_count} article.\n"
                     f"•{client_name} has received a total of 44 articles in news coverage. Among these, 39 i.e 88% of the articles were filed by Bureaus, while the remaining 5 i.e 12% were written by individual journalists.\n"
                     f"•A total of 387 journalists have written 1155 articles covering {client_name} and its competitors.\n"
                     f"•Out of which, 5 journalists have specifically written 5 articles mentioning {client_name} i.e of the total journalists writing on IIT Ropar and its competitors only 1% of them have mentioned IIT Ropar in their articles.\n"
@@ -1357,8 +1417,8 @@ f"•{client_name} witnessed its highest news coverage in Sept -2023, with 7 art
     f"•The leading publications reporting on {client_name} and its competitors are {top_1_name}, contributing {top_1_count} articles, followed by {top_2_name} with {top_2_count} articles, and {top_3_name} with {top_3_count} articles.\n"
     f"•Among these ,publications covering news on {client_name} specifically are {topc_1_name} takes the lead with {topc_1_count} articles, followed by {topc_2_name} with {topc_2_count} articles, and {topc_3_name} with {topc_3_count} articles.\n"
     f"•The top 10 publications writing articles on {client_name} contribute 86% of the total 44 articles.",
-    f"•The top journalists reporting on {client_name} and its competitors are Sukanya Nandy from News18 with 59 articles, followed by Hemali Chapia from TOI with 44 articles, and Suramya Sunilraj from News18 with 43 articles.\n"
-    f"•Among the journalists specifically covering {client_name} are {topjr_1_name} from News18 with {topjr_1_count} articles , {topjr_2_name} from Times of Indian  has authored {topjr_2_count} articles  and {topjr_3_name} from Hindu Business Line written {topjr_3_count} article.\n"
+    f"•The top journalists reporting on {client_name} and its competitors are {topj_1_name} from {topjt_1_name} with {topj_1_count} articles, followed by {topj_2_name} from {topjt_2_name} with {topj_2_count} articles, and {topj_3_name} from {topjt_3_name} with {topj_3_count} articles.\n"
+    f"•Among the journalists specifically covering {client_name} are {topjr_1_name} from {topjz_1_name} with {topjr_1_count} articles , {topjr_2_name} from {topjz_2_name} has authored {topjr_2_count} articles  and {topjr_3_name} from {topjz_3_name} written {topjr_3_count} article.\n"
     f"•{client_name} has received a total of 44 articles in news coverage. Among these, 39 i.e., 88% of the articles were filed by Bureaus, while the remaining 5 i.e., 12% were written by individual journalists.\n"
     ,
                    f"•The leading publication types writing on {client_name} and its competitors are {topt_1_name}, contributing {topt_1_count} articles, followed by {topt_2_name} with {topt_2_count} articles, and {topt_3_name} with {topt_3_count} articles.\n"
@@ -1366,7 +1426,7 @@ f"•{client_name} witnessed its highest news coverage in Sept -2023, with 7 art
     f"•IIT Madras and IIT Delhi dominate across all publication types, especially in general, business, technology, and digital-first publications.\n"
     f"•{client_name} may find value in engaging more with General and Business along with technology, and digital-first publications to expand its reach and visibility among broader audiences.\n",
 
-                        f"•The top journalists reporting on {client_name} and its competitors are {topjc_1_name} from News18 with {topjc_1_count} articles, followed by {topjc_2_name} from TOI with {topjc_2_count} articles, and {topjc_3_name} from News18 with {topjc_3_count} articles.\n"
+                        f"•The top journalists reporting on {client_name} and its competitors are {topjc_1_name} from {topjp_1_name} with {topjc_1_count} articles, followed by {topjc_2_name} from {topjp_2_name} with {topjc_2_count} articles, and {topjc_3_name} from {topjp_3_name} with {topjc_3_count} articles.\n"
 f"•These journalists have not written any articles on {client_name} so there is an opportunity for {client_name} to engage with these journalists to broaden its coverage and influence within the industry.\n",
 
 f"•The  journalists reporting on {client_name} and not on its competitors are Navjeevan Gopal from The Indian Express with 1 article and Munieshwer A Sagar from TOI with 1 articles.\n",
