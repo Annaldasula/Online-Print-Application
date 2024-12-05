@@ -540,7 +540,7 @@ if file:
 
         # Extract publication name and count for the top 3
         topdt_1_name = df_topdt1.iloc[0]["Date"]
-        topdt_1_count = df_topc1.iloc[0][client_column]
+        topdt_1_count = df_topdt1.iloc[0][client_column]
 
         # topc_2_name = df_topc2.iloc[0]["Publication Name"]
         # topc_2_count = df_topc2.iloc[0][client_column]
