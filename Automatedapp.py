@@ -611,6 +611,35 @@ if file:
         topt_3_name = df_topt3.iloc[0]["Publication Type"]
         topt_3_count = df_topt3.iloc[0]["Total"]
 
+        # Dynamically identify the client column
+        client_columnp = [col for col in PType_Entity.columns if col.startswith("Client-")][0]
+
+        # Select the "Publication Name" column and the dynamically identified client column
+        selected_columnp = PType_Entity[["Publication Type", client_columnp]]
+        
+        selected_columnp = selected_columnp.iloc[:-1]
+        selected_columnp = selected_columnp.sort_values(by=client_columnp, ascending=False)
+
+        # Extract the top 3 publications and their counts
+        topp_1 = selected_columnp.iloc[0:1]  # First publication
+        topp_2 = selected_columnp.iloc[1:2]  # Second publication
+        topp_3 = selected_columnp.iloc[2:3]  # Third publication
+
+        # Save them in separate DataFrames
+        df_topp1 = topp_1.reset_index(drop=True)
+        df_topp2 = topp_2.reset_index(drop=True)
+        df_topp3 = topp_3.reset_index(drop=True)
+
+        # Extract publication name and count for the top 3
+        topp_1_name = df_topp1.iloc[0]["Publication Type"]
+        topp_1_count = df_topp1.iloc[0][client_column]
+
+        topp_2_name = df_topp2.iloc[0]["Publication Type"]
+        topp_2_count = df_topp2.iloc[0][client_column]
+
+        topp_3_name = df_topp3.iloc[0]["Publication Type"]
+        topp_3_count = df_topp3.iloc[0][client_column]
+
         # Journalist Table
         finaldata['Journalist'] = finaldata['Journalist'].str.split(',')
         finaldata = finaldata.explode('Journalist')
