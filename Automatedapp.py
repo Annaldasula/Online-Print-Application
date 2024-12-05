@@ -519,6 +519,32 @@ if file:
         sov_dt = pd.crosstab((finaldata['Date'].dt.to_period('M')), finaldata['Entity'], margins=True, margins_name='Total')
         sov_dt1 = pd.DataFrame(sov_dt.to_records())
         
+        # Dynamically identify the client column
+        client_columndt = [col for col in sov_dt1.columns if col.startswith("Client-")][0]
+
+        # Select the "Publication Name" column and the dynamically identified client column
+        selected_columndt = pubs_table1[["Date", client_columndt]]
+        
+        selected_columndt = selected_columndt.iloc[:-1]
+        selected_columndt = selected_columndt.sort_values(by=client_columndt, ascending=False)
+
+        # Extract the top 3 publications and their counts
+        topdt_1 = selected_columndt.iloc[0:1]  # First publication
+        # topc_2 = selected_columndt.iloc[1:2]  # Second publication
+        # topc_3 = selected_columndt.iloc[2:3]  # Third publication
+
+        # Save them in separate DataFrames
+        df_topdt1 = topdt_1.reset_index(drop=True)
+        # df_topc2 = topc_2.reset_index(drop=True)
+        # df_topc3 = topc_3.reset_index(drop=True)
+
+        # Extract publication name and count for the top 3
+        topdt_1_name = df_topdt1.iloc[0]["Date"]
+        topdt_1_count = df_topc1.iloc[0][client_column]
+
+        # topc_2_name = df_topc2.iloc[0]["Publication Name"]
+        # topc_2_count = df_topc2.iloc[0][client_column]
+
         
         #Publication Name
         pub_table = pd.crosstab(finaldata['Publication Name'], finaldata['Entity'])
