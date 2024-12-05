@@ -1389,11 +1389,11 @@ f"•{client_name} may find value in engaging more with General and Business alo
     p.font.bold = True
 
 
-    time_period_text = (f"•{client_name} consistently maintains a high level of coverage throughout the months, with peaks in Feb-24 and May-2024.\n"
+    time_period_text = (f"•{client_name} consistently maintains a high level of coverage throughout the months, with peak in month {topdt_1_name}.\n"
 "•These spikes indicate significant media attention and potentially notable events or announcements associated with her during those periods.\n"
-f"•{client_name}'s received very less coverage in every month, with peak in Sept-23.\n"
+f"•{client_name}'s received very less coverage in every month, with peak in {topdt_1_name}.\n"
 f"•While {client_name}'s coverage is relatively lower compared to IIT Madras and Delhi, it still experiences spikes indicating periods of increased media visibility.\n"
-f"•{client_name} witnessed its highest news coverage in Sept -2023, with 7 articles. The news during this period mainly revolved around topics such as:\n"
+f"•{client_name} witnessed its highest news coverage in {topdt_1_name}, with {topdt_1_count} articles. The news during this period mainly revolved around topics such as:\n"
 "1.IIT Ropar Placements: Average salary, placed students increase despite Covid slowdown\n"
 "2.Purohit allows IIT-Ropar to set up campus in Edu City.\n"
                    )
@@ -1404,14 +1404,14 @@ f"•{client_name} witnessed its highest news coverage in Sept -2023, with 7 art
     time_period_frame.clear() 
 
     p = time_period_frame.add_paragraph()
-    p.text = (f"•{client_name} consistently maintains a high level of coverage throughout the months, with peaks in Feb-24 and May-2024.\n"
+    p.text = (f"•{client_name} consistently maintains a high level of coverage throughout the months, with peak in month {topdt_1_name}.\n"
 "•These spikes indicate significant media attention and potentially notable events or announcements associated with her during those periods.\n"
-f"•{client_name}'s received very less coverage in every month, with peak in Sept-23.\n"
+f"•{client_name}'s received very less coverage in every month, with peak in {topdt_1_name}.\n"
 f"•While {client_name}'s coverage is relatively lower compared to IIT Madras and Delhi, it still experiences spikes indicating periods of increased media visibility.\n"
-f"•{client_name} witnessed its highest news coverage in Sept -2023, with 7 articles. The news during this period mainly revolved around topics such as:\n"
+f"•{client_name} witnessed its highest news coverage in {topdt_1_name}, with {topdt_1_count} articles. The news during this period mainly revolved around topics such as:\n"
 "1.IIT Ropar Placements: Average salary, placed students increase despite Covid slowdown\n"
 "2.Purohit allows IIT-Ropar to set up campus in Edu City.\n"
-             )
+                   )
     p.font.size = Pt(18)
     p.font.name = 'Gill Sans'
 
@@ -1434,7 +1434,7 @@ f"•{client_name} witnessed its highest news coverage in Sept -2023, with 7 art
     "•IIT Bombay, IIT Kanpur, and IIT Roorkee also receive notable coverage, with 21%, 17%, and 7% of the SOV respectively.\n"
     f"•{client_name} holds a smaller share of the online conversation compared to its peers, with just 1% of the SOV and ranks 6th i.e., last in the SOV.\n"
     f"•Despite ranking lower in terms of SOV, {client_name}'s presence indicates some level of visibility and recognition within the online media landscape.",
-        f"•{client_name} witnessed its highest news coverage in Sept -2023, with 7 articles. The news during this period mainly revolved around topics such as:\n"
+       f"•{client_name} witnessed its highest news coverage in {topdt_1_name}, with {topdt_1_count} articles. The news during this period mainly revolved around topics such as:\n"
     "1.IIT Ropar Placements: Average salary, placed students increase despite Covid slowdown\n"
     "2.Purohit allows IIT-Ropar to set up campus in Edu City\n"
     "3.UPES Runway Incubator Signs MoU With IIT Ropar’s Ihub – Awadh\n"
