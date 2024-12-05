@@ -523,7 +523,7 @@ if file:
         client_columndt = [col for col in sov_dt1.columns if col.startswith("Client-")][0]
 
         # Select the "Publication Name" column and the dynamically identified client column
-        selected_columndt = pubs_table1[["Date", client_columndt]]
+        selected_columndt = sov_dt1[["Date", client_columndt]]
         
         selected_columndt = selected_columndt.iloc[:-1]
         selected_columndt = selected_columndt.sort_values(by=client_columndt, ascending=False)
