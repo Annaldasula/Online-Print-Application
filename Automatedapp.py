@@ -526,6 +526,26 @@ if file:
         pubs_table = pub_table.sort_values('Total', ascending=False).round()
         pubs_table.loc['GrandTotal'] = pubs_table.sum(numeric_only=True, axis=0)
         pubs_table = pd.DataFrame(pubs_table.to_records())
+
+        # Extract the top 3 publications and their counts
+        top_1 = pubs_table1.iloc[0:1]  # First publication
+        top_2 = pubs_table1.iloc[1:2]  # Second publication
+        top_3 = pubs_table1.iloc[2:3]  # Third publication
+
+        # Save them in separate DataFrames
+        df_top1 = top_1.reset_index(drop=True)
+        df_top2 = top_2.reset_index(drop=True)
+        df_top3 = top_3.reset_index(drop=True)
+
+        # Extract publication name and count for the top 3
+        top_1_name = df_top1.iloc[0]["Publication Name"]
+        top_1_count = df_top1.iloc[0]["Total"]
+
+        top_2_name = df_top2.iloc[0]["Publication Name"]
+        top_2_count = df_top2.iloc[0]["Total"]
+
+        top_3_name = df_top3.iloc[0]["Publication Name"]
+        top_3_count = df_top3.iloc[0]["Total"]
         
 
         PP = pd.crosstab(finaldata['Publication Name'], finaldata['Publication Type'])
@@ -976,7 +996,7 @@ News search: All Articles: entity mentioned at least once in the article"""
 
 
     source_text = (
-    f"•The leading publications reporting on {client_name} and its competitors are Times of India, contributing 561 articles, followed by Economic Times with 467 articles, and The Indian Express with 455 articles.\n"
+    f"•The leading publications reporting on {client_name} and its competitors are {top_1_name}, contributing {top_1_count} articles, followed by {top_2_name} with {top_2_count} articles, and {top_3_name} with {top_3_count} articles.\n"
 f"•Among these ,publications covering news on {client_name} specifically are The Indian Express takes the lead with 9 articles, followed by Tribune with 9 articles, and Times of India with 7 articles.\n"
 f"•The top 10 publications writing articles on {client_name} contribute 86% of the total 44 articles.\n" 
 )
@@ -986,7 +1006,7 @@ f"•The top 10 publications writing articles on {client_name} contribute 86% of
     source_frame.clear()  # Clear any default paragraph
     p = source_frame.add_paragraph()
     p.text = (
-    f"•The leading publications reporting on {client_name} and its competitors are Times of India, contributing 561 articles, followed by Economic Times with 467 articles, and The Indian Express with 455 articles.\n"
+    f"•The leading publications reporting on {client_name} and its competitors are {top_1_name}, contributing {top_1_count} articles, followed by {top_2_name} with {top_2_count} articles, and {top_3_name} with {top_3_count} articles.\n"
 f"•Among these ,publications covering news on {client_name} specifically are The Indian Express takes the lead with 9 articles, followed by Tribune with 9 articles, and Times of India with 7 articles.\n"
 f"•The top 10 publications writing articles on {client_name} contribute 86% of the total 44 articles.\n" 
 )
