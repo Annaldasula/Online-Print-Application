@@ -570,13 +570,13 @@ if file:
 
         # Extract publication name and count for the top 3
         topc_1_name = df_topc1.iloc[0]["Publication Name"]
-        topc_1_count = df_topc1.iloc[0]["Total"]
+        topc_1_count = df_topc1.iloc[0][client_column]
 
-        topc_2_name = df_topc2.iloc[0]["Publication Name"]
-        topc_2_count = df_topc2.iloc[0]["Total"]
+        topc_2_name = df_topc2.iloc[0][Publication Name]
+        topc_2_count = df_topc2.iloc[0][client_column]
 
         topc_3_name = df_topc3.iloc[0]["Publication Name"]
-        topc_3_count = df_topc3.iloc[0]["Total"]
+        topc_3_count = df_topc3.iloc[0][client_column]
 
 
         PP = pd.crosstab(finaldata['Publication Name'], finaldata['Publication Type'])
