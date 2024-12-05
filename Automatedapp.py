@@ -732,7 +732,7 @@ if file:
 
         # Extract the top 3 publications and their counts
         topjz_1 = selected_column.iloc[0:1]  # First publication
-        topjz_2 = selected_columniloc[1:2]  # Second publication
+        topjz_2 = selected_column.iloc[1:2]  # Second publication
         topjz_3 = selected_column.iloc[2:3]  # Third publication
 
         # Save them in separate DataFrames
