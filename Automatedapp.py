@@ -721,7 +721,28 @@ if file:
         filtered_df1 = Jour_table[(Jour_table[client_column1] != 0) & (Jour_table.drop([client_column1, 'Journalist', 'Publication Name','Total'], axis=1).eq(0).all(axis=1))]
 
         Jour_Comp = filtered_df.head(10)
-        Jour_Client = filtered_df1.head(10)        
+        Jour_Client = filtered_df1.head(10)   
+        
+        # Extract the top 3 publications and their counts
+        topjc_1 = Jour_Comp.iloc[0:1]  # First publication
+        topjc_2 = Jour_Comp.iloc[1:2]  # Second publication
+        topjc_3 = Jour_Comp.iloc[2:3]  # Third publication
+
+        # Save them in separate DataFrames
+        df_topjc1 = topjc_1.reset_index(drop=True)
+        df_topjc2 = topjc_2.reset_index(drop=True)
+        df_topjc3 = topjc_3.reset_index(drop=True)
+
+        # Extract publication name and count for the top 3
+        topjc_1_name = df_topjc1.iloc[0]["Journalist"]
+        topjc_1_count = df_topjc1.iloc[0]["Total"]
+
+        topjc_2_name = df_topjc2.iloc[0]["Journalist"]
+        topjc_2_count = df_topjc2.iloc[0]["Total"]
+
+        topjc_3_name = df_topjc3.iloc[0]["Journalist"]
+        topjc_3_count = df_topjc3.iloc[0]["Total"]
+
         
         
         # Remove square brackets and single quotes from the 'Journalist' column
@@ -1345,7 +1366,7 @@ f"•{client_name} witnessed its highest news coverage in Sept -2023, with 7 art
     f"•IIT Madras and IIT Delhi dominate across all publication types, especially in general, business, technology, and digital-first publications.\n"
     f"•{client_name} may find value in engaging more with General and Business along with technology, and digital-first publications to expand its reach and visibility among broader audiences.\n",
 
-                        f"•The top journalists reporting on {client_name} and its competitors are {topj_1_name} from News18 with {topj_1_count} articles, followed by {topj_2_name} from TOI with {topj_2_count} articles, and {topj_3_name} from News18 with {topj_3_count} articles.\n"
+                        f"•The top journalists reporting on {client_name} and its competitors are {topjc_1_name} from News18 with {topjc_1_count} articles, followed by {topjc_2_name} from TOI with {topjc_2_count} articles, and {topjc_3_name} from News18 with {topjc_3_count} articles.\n"
 f"•These journalists have not written any articles on {client_name} so there is an opportunity for {client_name} to engage with these journalists to broaden its coverage and influence within the industry.\n",
 
 f"•The  journalists reporting on {client_name} and not on its competitors are Navjeevan Gopal from The Indian Express with 1 article and Munieshwer A Sagar from TOI with 1 articles.\n",
