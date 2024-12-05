@@ -561,6 +561,26 @@ if file:
         PType_Entity.loc['GrandTotal'] = PType_Entity.sum(numeric_only=True, axis=0)
         PType_Entity = pd.DataFrame(PType_Entity.to_records())
 
+        # Extract the top 3 publications and their counts
+        topt_1 = PType_Entity.iloc[0:1]  # First publication
+        topt_2 = PType_Entity.iloc[1:2]  # Second publication
+        topt_3 = PType_Entity.iloc[2:3]  # Third publication
+
+        # Save them in separate DataFrames
+        df_topt1 = topt_1.reset_index(drop=True)
+        df_topt2 = topt_2.reset_index(drop=True)
+        df_topt3 = topt_3.reset_index(drop=True)
+
+        # Extract publication name and count for the top 3
+        topt_1_name = df_topt1.iloc[0]["Publication Type"]
+        topt_1_count = df_topt1.iloc[0]["Total"]
+
+        topt_2_name = df_topt2.iloc[0]["Publication Type"]
+        topt_2_count = df_topt2.iloc[0]["Total"]
+
+        topt_3_name = df_topt3.iloc[0]["Publication Type"]
+        topt_3_count = df_topt3.iloc[0]["Total"]
+
         # Journalist Table
         finaldata['Journalist'] = finaldata['Journalist'].str.split(',')
         finaldata = finaldata.explode('Journalist')
@@ -1092,7 +1112,8 @@ f"•The top 10 publications writing articles on {client_name} contribute 86% of
     p.font.underline = True
     p.font.bold = True
 
-    news_search_text = (f"•Top Publication Types writing on {client_name} are General and  Business & Financials they both contribute 90% of the total news coverage on IIT Ropar.\n"
+    news_search_text = (f"•The leading publication types writing on {client_name} and its competitors are {topt_1_name}, contributing {topt_1_count} articles, followed by {topt_2_name} with {topt_2_count} articles, and {topt_3_name} with {topt_3_count} articles.\n"
+        f"•Top Publication Types writing on {client_name} are General and  Business & Financials they both contribute 90% of the total news coverage on IIT Ropar.\n"
 "•IIT Madras and IIT Delhi dominates across all publication types, especially in general, business ,technology, and digital-first publications.\n"
 f"•{client_name} may find value in engaging more with General and Business along with technology, and digital-first publications to expand her reach and visibility among broader audiences.\n"
                    )
@@ -1101,7 +1122,8 @@ f"•{client_name} may find value in engaging more with General and Business alo
     news_search_frame.word_wrap = True
     news_search_frame.clear()  # Clear any default paragraph
     p = news_search_frame.add_paragraph()
-    p.text = (f"•Top Publication Types writing on {client_name} are General and  Business & Financials they both contribute 90% of the total news coverage on IIT Ropar.\n"
+    p.text = (f"•The leading publication types writing on {client_name} and its competitors are {topt_1_name}, contributing {topt_1_count} articles, followed by {topt_2_name} with {topt_2_count} articles, and {topt_3_name} with {topt_3_count} articles.\n"
+        f"•Top Publication Types writing on {client_name} are General and  Business & Financials they both contribute 90% of the total news coverage on IIT Ropar.\n"
 "•IIT Madras and IIT Delhi dominates across all publication types, especially in general, business ,technology, and digital-first publications.\n"
 f"•{client_name} may find value in engaging more with General and Business along with technology, and digital-first publications to expand her reach and visibility among broader audiences.\n"
                    )
