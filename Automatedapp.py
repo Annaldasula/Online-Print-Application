@@ -512,6 +512,8 @@ if file:
         Entity_SOV3['% '] = Entity_SOV3['% '].astype(str) + '%'
         # Entity_SOV3 = pd.DataFrame(Entity_SOV3.to_records())
 
+        total_news_count = Entity_SOV3.loc[Entity_SOV3["Entity"] == "Total", "News Count"].values[0]
+
         # Additional MOM DataFrames
         finaldata['Date'] = pd.to_datetime(finaldata['Date']).dt.normalize()
         sov_dt = pd.crosstab((finaldata['Date'].dt.to_period('M')), finaldata['Entity'], margins=True, margins_name='Total')
@@ -930,7 +932,7 @@ News search: All Articles: entity mentioned at least once in the article"""
     p.font.bold = True
 
     sov_text = (
-    f"•{client_name} and its peers collectively received a total of 5017 prominent news mentions online during the specified time period.\n"
+    f"•{client_name} and its peers collectively received a total of {total_news_count} news mentions online during the specified time period.\n"
     "•Among these, IIT Madras dominates the conversation with 35% of the total SOV, indicating significant media coverage and visibility.\n"
     "•IIT Delhi follows IIT Madras, capturing 21% of the SOV. While its coverage is notably lower than IIT Madras, it still indicates a considerable presence in the online space.\n"
     "•IIT Bombay, IIT Kanpur, and IIT Roorkee also receive notable coverage, with 20%, 17%, and 6% of the SOV respectively.\n"
@@ -947,7 +949,7 @@ News search: All Articles: entity mentioned at least once in the article"""
 
     p = sov_text_frame.add_paragraph()
     p.text = (
-    f"•{client_name} and its peers collectively received a total of 5017 prominent news mentions online during the specified time period.\n"
+    f"•{client_name} and its peers collectively received a total of {total_news_count} news mentions online during the specified time period.\n"
     "•Among these, IIT Madras dominates the conversation with 35% of the total SOV, indicating significant media coverage and visibility.\n"
     "•IIT Delhi follows IIT Madras, capturing 21% of the SOV. While its coverage is notably lower than IIT Madras, it still indicates a considerable presence in the online space.\n"
     "•IIT Bombay, IIT Kanpur, and IIT Roorkee also receive notable coverage, with 20%, 17%, and 6% of the SOV respectively.\n"
