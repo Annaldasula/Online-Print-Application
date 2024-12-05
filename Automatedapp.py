@@ -1329,7 +1329,7 @@ f"•The top 10 publications writing articles on {client_name} contribute 86% of
     p.font.bold = True
 
     news_search_text = (f"•The leading publication types writing on {client_name} and its competitors are {topt_1_name}, contributing {topt_1_count} articles, followed by {topt_2_name} with {topt_2_count} articles, and {topt_3_name} with {topt_3_count} articles.\n"
-        f"•Top Publication Types writing on {client_name} are {topp_1_name} and  {topp_2_name} they both contribute {topt_1_count} articles & {topt_2_count} articles of the total news coverage on {client_name}.\n"
+        f"•Top Publication Types writing on {client_name} are {topp_1_name} and  {topp_2_name} they both contribute {topp_1_count} articles & {topp_2_count} articles of the total news coverage on {client_name}.\n"
 "•IIT Madras and IIT Delhi dominates across all publication types, especially in general, business ,technology, and digital-first publications.\n"
 f"•{client_name} may find value in engaging more with General and Business along with technology, and digital-first publications to expand her reach and visibility among broader audiences.\n"
                    )
@@ -1339,7 +1339,7 @@ f"•{client_name} may find value in engaging more with General and Business alo
     news_search_frame.clear()  # Clear any default paragraph
     p = news_search_frame.add_paragraph()
     p.text = (f"•The leading publication types writing on {client_name} and its competitors are {topt_1_name}, contributing {topt_1_count} articles, followed by {topt_2_name} with {topt_2_count} articles, and {topt_3_name} with {topt_3_count} articles.\n"
-        f"•Top Publication Types writing on {client_name} are {topp_1_name} and  {topp_2_name} they both contribute {topt_1_count} articles & {topt_2_count} articles of the total news coverage on {client_name}.\n"
+        f"•Top Publication Types writing on {client_name} are {topp_1_name} and  {topp_2_name} they both contribute {topp_1_count} articles & {topp_2_count} articles of the total news coverage on {client_name}.\n"
 "•IIT Madras and IIT Delhi dominates across all publication types, especially in general, business ,technology, and digital-first publications.\n"
 f"•{client_name} may find value in engaging more with General and Business along with technology, and digital-first publications to expand her reach and visibility among broader audiences.\n"
                    )
@@ -1448,7 +1448,7 @@ f"•{client_name} witnessed its highest news coverage in {topdt_1_name}, with {
     f"•{client_name} has received a total of 44 articles in news coverage. Among these, 39 i.e., 88% of the articles were filed by Bureaus, while the remaining 5 i.e., 12% were written by individual journalists.\n"
     ,
                    f"•The leading publication types writing on {client_name} and its competitors are {topt_1_name}, contributing {topt_1_count} articles, followed by {topt_2_name} with {topt_2_count} articles, and {topt_3_name} with {topt_3_count} articles.\n"
-                        f"•Top Publication Types writing on {client_name} are {topp_1_name} and  {topp_2_name} they both contribute {topt_1_count} articles & {topt_2_count} articles of the total news coverage on {client_name}.\n"
+                        f"•Top Publication Types writing on {client_name} are {topp_1_name} and  {topp_2_name} they both contribute {topp_1_count} articles & {topp_2_count} articles of the total news coverage on {client_name}.\n"
     f"•IIT Madras and IIT Delhi dominate across all publication types, especially in general, business, technology, and digital-first publications.\n"
     f"•{client_name} may find value in engaging more with General and Business along with technology, and digital-first publications to expand its reach and visibility among broader audiences.\n",
 
