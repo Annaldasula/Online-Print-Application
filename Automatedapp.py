@@ -652,6 +652,35 @@ if file:
         topj_3_name = df_topj3.iloc[0]["Journalist"]
         topj_3_count = df_topj3.iloc[0]["Total"]
 
+        # Dynamically identify the client column
+        client_columns = [col for col in Jour_table1.columns if col.startswith("Client-")][0]
+
+        # Select the "Publication Name" column and the dynamically identified client column
+        selected_column = Jour_table1[["Journalist", client_columns]]
+        
+        selected_column = selected_column.iloc[:-1]
+        selected_column = selected_column.sort_values(by=client_columns, ascending=False)
+
+        # Extract the top 3 publications and their counts
+        topjr_1 = selected_column.iloc[0:1]  # First publication
+        topjr_2 = selected_column.iloc[1:2]  # Second publication
+        topjr_3 = selected_column.iloc[2:3]  # Third publication
+
+        # Save them in separate DataFrames
+        df_topjr1 = topjr_1.reset_index(drop=True)
+        df_topjr2 = topjr_2.reset_index(drop=True)
+        df_topjr3 = topjr_3.reset_index(drop=True)
+
+        # Extract publication name and count for the top 3
+        topjr_1_name = df_topjr1.iloc[0]["Journalist"]
+        topjr_1_count = df_topjr1.iloc[0][client_column]
+
+        topjr_2_name = df_topjr2.iloc[0]["Journalist"]
+        topjr_2_count = df_topjr2.iloc[0][client_column]
+
+        topjr_3_name = df_topjr3.iloc[0]["Journalist"]
+        topjr_3_count = df_topjr3.iloc[0][client_column]
+
         # Find columns containing the word 'Client'
         client_columns = [col for col in Jour_table.columns if 'Client' in col]
         # Filter the dataframe where any 'Client' column has 0
@@ -1129,7 +1158,7 @@ f"•The top 10 publications writing articles on {client_name} contribute 86% of
 
     # Add News Search text
     news_search_text = (f"•The top journalists reporting on {client_name} and its competitors are {topj_1_name} from News18 with {topj_1_count} articles, followed by {topj_2_name} from TOI with {topj_2_count} articles, and {topj_3_name} from News18 with {topj_3_count} articles.\n"
-                    f"•Among the journalists specifically covering {client_name} are Munieshwer A Sagar and Deepak Yadav from Times of Indian  has authored 1 articles each  and Arushi Mishra from Hindu Business Line written 1 article.\n"
+                    f"•Among the journalists specifically covering {client_name} are {topjr_1_name} from News18 with {topjr_1_count} articles , {topjr_2_name} from Times of Indian  has authored {topjr_2_count} articles  and {topjr_3_name} from Hindu Business Line written {topjr_3_count} article.\n"
                     f"•{client_name} has received a total of 44 articles in news coverage. Among these, 39 i.e 88% of the articles were filed by Bureaus, while the remaining 5 i.e 12% were written by individual journalists.\n"
                     f"•A total of 387 journalists have written 1155 articles covering {client_name} and its competitors.\n"
                     f"•Out of which, 5 journalists have specifically written 5 articles mentioning {client_name} i.e of the total journalists writing on IIT Ropar and its competitors only 1% of them have mentioned IIT Ropar in their articles.\n"
@@ -1141,7 +1170,7 @@ f"•The top 10 publications writing articles on {client_name} contribute 86% of
     news_search_frame.clear()  # Clear any default paragraph
     p = news_search_frame.add_paragraph()
     p.text = (f"•The top journalists reporting on {client_name} and its competitors are {topj_1_name} from News18 with {topj_1_count} articles, followed by {topj_2_name} from TOI with {topj_2_count} articles, and {topj_3_name} from News18 with {topj_3_count} articles.\n"
-                    f"•Among the journalists specifically covering {client_name} are Munieshwer A Sagar and Deepak Yadav from Times of Indian  has authored 1 articles each  and Arushi Mishra from Hindu Business Line written 1 article.\n"
+                    f"•Among the journalists specifically covering {client_name} are {topjr_1_name} from News18 with {topjr_1_count} articles , {topjr_2_name} from Times of Indian  has authored {topjr_2_count} articles  and {topjr_3_name} from Hindu Business Line written {topjr_3_count} article.\n"
                     f"•{client_name} has received a total of 44 articles in news coverage. Among these, 39 i.e 88% of the articles were filed by Bureaus, while the remaining 5 i.e 12% were written by individual journalists.\n"
                     f"•A total of 387 journalists have written 1155 articles covering {client_name} and its competitors.\n"
                     f"•Out of which, 5 journalists have specifically written 5 articles mentioning {client_name} i.e of the total journalists writing on IIT Ropar and its competitors only 1% of them have mentioned IIT Ropar in their articles.\n"
@@ -1279,7 +1308,7 @@ f"•{client_name} witnessed its highest news coverage in Sept -2023, with 7 art
     f"•Among these ,publications covering news on {client_name} specifically are {topc_1_name} takes the lead with {topc_1_count} articles, followed by {topc_2_name} with {topc_2_count} articles, and {topc_3_name} with {topc_3_count} articles.\n"
     f"•The top 10 publications writing articles on {client_name} contribute 86% of the total 44 articles.",
     f"•The top journalists reporting on {client_name} and its competitors are Sukanya Nandy from News18 with 59 articles, followed by Hemali Chapia from TOI with 44 articles, and Suramya Sunilraj from News18 with 43 articles.\n"
-    f"•Among the journalists specifically covering {client_name}, Munieshwer A Sagar and Deepak Yadav from Times of India have authored 1 article each, and Arushi Mishra from Hindu Business Line wrote 1 article.\n"
+    f"•Among the journalists specifically covering {client_name} are {topjr_1_name} from News18 with {topjr_1_count} articles , {topjr_2_name} from Times of Indian  has authored {topjr_2_count} articles  and {topjr_3_name} from Hindu Business Line written {topjr_3_count} article.\n"
     f"•{client_name} has received a total of 44 articles in news coverage. Among these, 39 i.e., 88% of the articles were filed by Bureaus, while the remaining 5 i.e., 12% were written by individual journalists.\n"
     ,
                    f"•The leading publication types writing on {client_name} and its competitors are {topt_1_name}, contributing {topt_1_count} articles, followed by {topt_2_name} with {topt_2_count} articles, and {topt_3_name} with {topt_3_count} articles.\n"
