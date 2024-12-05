@@ -1191,12 +1191,13 @@ f"•{client_name} witnessed its highest news coverage in Sept -2023, with 7 art
                    f"•Top Publication Types writing on {client_name} are General and Business & Financials; they both contribute 90% of the total news coverage on IIT Ropar.\n"
     f"•IIT Madras and IIT Delhi dominate across all publication types, especially in general, business, technology, and digital-first publications.\n"
     f"•{client_name} may find value in engaging more with General and Business along with technology, and digital-first publications to expand its reach and visibility among broader audiences.\n",
-                        
+
+                        f"•Top journalists covering competitors rather than {client_name} are Sukanya Nandy from News18 with 59 articles, followed by Hemali Chapia from TOI with 44 articles, and Suramya Sunilraj from News18 with 43 articles. \n"
+f"•These journalists have not written any articles on {client_name} so there is an opportunity for {client_name} to engage with these journalists to broaden its coverage and influence within the industry.\n",
+
 f"•The  journalists reporting on {client_name} and not on its competitors are Navjeevan Gopal from The Indian Express with 1 article and Munieshwer A Sagar from TOI with 1 articles.\n",
 
-f"•Top journalists covering competitors rather than {client_name} are Sukanya Nandy from News18 with 59 articles, followed by Hemali Chapia from TOI with 44 articles, and Suramya Sunilraj from News18 with 43 articles. \n"
-f"•These journalists have not written any articles on {client_name} so there is an opportunity for {client_name} to engage with these journalists to broaden its coverage and influence within the industry.\n"
-                       ]
+                      ]
         
         # Create a new PowerPoint presentation
         # prs = Presentation()
