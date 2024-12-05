@@ -547,7 +547,37 @@ if file:
 
         top_3_name = df_top3.iloc[0]["Publication Name"]
         top_3_count = df_top3.iloc[0]["Total"]
+
+
+        # Dynamically identify the client column
+        client_column = [col for col in pubs_table.columns if col.startswith("Client-")][0]
+
+        # Select the "Publication Name" column and the dynamically identified client column
+        selected_columns = pubs_table[["Publication Name", client_column]]
         
+        selected_columns = selected_columns.iloc[:-1]
+        selected_columns = selected_columns.sort_values(by=client_column, ascending=False)
+
+        # Extract the top 3 publications and their counts
+        topc_1 = selected_columns.iloc[0:1]  # First publication
+        topc_2 = selected_columns.iloc[1:2]  # Second publication
+        topc_3 = selected_columns.iloc[2:3]  # Third publication
+
+        # Save them in separate DataFrames
+        df_topc1 = topc_1.reset_index(drop=True)
+        df_topc2 = topc_2.reset_index(drop=True)
+        df_topc3 = topc_3.reset_index(drop=True)
+
+        # Extract publication name and count for the top 3
+        topc_1_name = df_topc1.iloc[0]["Publication Name"]
+        topc_1_count = df_topc1.iloc[0]["Total"]
+
+        topc_2_name = df_topc2.iloc[0]["Publication Name"]
+        topc_2_count = df_topc2.iloc[0]["Total"]
+
+        topc_3_name = df_topc3.iloc[0]["Publication Name"]
+        topc_3_count = df_topc3.iloc[0]["Total"]
+
 
         PP = pd.crosstab(finaldata['Publication Name'], finaldata['Publication Type'])
         PP['Total'] = PP.sum(axis=1)
@@ -1039,7 +1069,7 @@ News search: All Articles: entity mentioned at least once in the article"""
 
     source_text = (
     f"•The leading publications reporting on {client_name} and its competitors are {top_1_name}, contributing {top_1_count} articles, followed by {top_2_name} with {top_2_count} articles, and {top_3_name} with {top_3_count} articles.\n"
-f"•Among these ,publications covering news on {client_name} specifically are The Indian Express takes the lead with 9 articles, followed by Tribune with 9 articles, and Times of India with 7 articles.\n"
+f"•Among these ,publications covering news on {client_name} specifically are {topc_1_name} takes the lead with {topc_1_count} articles, followed by {topc_2_name} with {topc_2_count} articles, and {topc_3_name} with {topc_3_count} articles.\n"
 f"•The top 10 publications writing articles on {client_name} contribute 86% of the total 44 articles.\n" 
 )
     source_shape = slide.shapes.add_textbox(Inches(0.3), Inches(6.1), Inches(14), Inches(1))
@@ -1049,7 +1079,7 @@ f"•The top 10 publications writing articles on {client_name} contribute 86% of
     p = source_frame.add_paragraph()
     p.text = (
     f"•The leading publications reporting on {client_name} and its competitors are {top_1_name}, contributing {top_1_count} articles, followed by {top_2_name} with {top_2_count} articles, and {top_3_name} with {top_3_count} articles.\n"
-f"•Among these ,publications covering news on {client_name} specifically are The Indian Express takes the lead with 9 articles, followed by Tribune with 9 articles, and Times of India with 7 articles.\n"
+f"•Among these ,publications covering news on {client_name} specifically are {topc_1_name} takes the lead with {topc_1_count} articles, followed by {topc_2_name} with {topc_2_count} articles, and {topc_3_name} with {topc_3_count} articles.\n"
 f"•The top 10 publications writing articles on {client_name} contribute 86% of the total 44 articles.\n" 
 )
     p.font.size = Pt(18)
@@ -1246,7 +1276,7 @@ f"•{client_name} witnessed its highest news coverage in Sept -2023, with 7 art
     "4.SKUAST-K, IIT Ropar hold 2-day event"
     , 
     f"•The leading publications reporting on {client_name} and its competitors are {top_1_name}, contributing {top_1_count} articles, followed by {top_2_name} with {top_2_count} articles, and {top_3_name} with {top_3_count} articles.\n"
-    f"•Among these, publications covering news on {client_name} specifically are The Indian Express with 9 articles, followed by Tribune with 9 articles, and Times of India with 7 articles.\n"
+    f"•Among these ,publications covering news on {client_name} specifically are {topc_1_name} takes the lead with {topc_1_count} articles, followed by {topc_2_name} with {topc_2_count} articles, and {topc_3_name} with {topc_3_count} articles.\n"
     f"•The top 10 publications writing articles on {client_name} contribute 86% of the total 44 articles.",
     f"•The top journalists reporting on {client_name} and its competitors are Sukanya Nandy from News18 with 59 articles, followed by Hemali Chapia from TOI with 44 articles, and Suramya Sunilraj from News18 with 43 articles.\n"
     f"•Among the journalists specifically covering {client_name}, Munieshwer A Sagar and Deepak Yadav from Times of India have authored 1 article each, and Arushi Mishra from Hindu Business Line wrote 1 article.\n"
