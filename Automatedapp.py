@@ -526,6 +526,7 @@ if file:
         pubs_table = pub_table.sort_values('Total', ascending=False).round()
         pubs_table.loc['GrandTotal'] = pubs_table.sum(numeric_only=True, axis=0)
         pubs_table = pd.DataFrame(pubs_table.to_records())
+        pubs_table1 = pubs_table.head(10)
 
         # Extract the top 3 publications and their counts
         top_1 = pubs_table1.iloc[0:1]  # First publication
