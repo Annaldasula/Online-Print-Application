@@ -663,8 +663,8 @@ if file:
         topp_2_name = df_topp2.iloc[0]["Publication Type"]
         topp_2_count = df_topp2.iloc[0][client_column]
 
-        topp_3_name = df_topp3.iloc[0]["Publication Type"]
-        topp_3_count = df_topp3.iloc[0][client_column]
+        # topp_3_name = df_topp3.iloc[0]["Publication Type"]
+        # topp_3_count = df_topp3.iloc[0][client_column]
 
         # Journalist Table
         finaldata['Journalist'] = finaldata['Journalist'].str.split(',')
