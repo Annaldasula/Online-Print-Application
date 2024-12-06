@@ -664,8 +664,8 @@ if file:
         topp_2_name = df_topp2.iloc[0]["Publication Type"]
         topp_2_count = df_topp2.iloc[0][client_column]
 
-        # topp_3_name = df_topp3.iloc[0]["Publication Type"]
-        # topp_3_count = df_topp3.iloc[0][client_column]
+        topp_3_name = df_topp3.iloc[0]["Publication Type"]
+        topp_3_count = df_topp3.iloc[0][client_column]
 
         # Journalist Table
         finaldata['Journalist'] = finaldata['Journalist'].str.split(',')
@@ -790,45 +790,45 @@ if file:
         Jour_Comp = filtered_df.head(10)
         Jour_Client = filtered_df1.head(10)   
         
-        # # Extract the top 3 journalits writing in comp and not on client and their counts
-        # topjc_1 = Jour_Comp.iloc[0:1]  # First publication
-        # topjc_2 = Jour_Comp.iloc[1:2]  # Second publication
-        # topjc_3 = Jour_Comp.iloc[2:3]  # Third publication
+        # Extract the top 3 journalits writing in comp and not on client and their counts
+        topjc_1 = Jour_Comp.iloc[0:1]  # First publication
+        topjc_2 = Jour_Comp.iloc[1:2]  # Second publication
+        topjc_3 = Jour_Comp.iloc[2:3]  # Third publication
 
-        # # Save them in separate DataFrames
-        # df_topjc1 = topjc_1.reset_index(drop=True)
-        # df_topjc2 = topjc_2.reset_index(drop=True)
-        # df_topjc3 = topjc_3.reset_index(drop=True)
+        # Save them in separate DataFrames
+        df_topjc1 = topjc_1.reset_index(drop=True)
+        df_topjc2 = topjc_2.reset_index(drop=True)
+        df_topjc3 = topjc_3.reset_index(drop=True)
 
-        # # Extract publication name and count for the top 3
-        # topjc_1_name = df_topjc1.iloc[0]["Journalist"]
-        # topjc_1_count = df_topjc1.iloc[0]["Total"]
+        # Extract publication name and count for the top 3
+        topjc_1_name = df_topjc1.iloc[0]["Journalist"]
+        topjc_1_count = df_topjc1.iloc[0]["Total"]
 
-        # topjc_2_name = df_topjc2.iloc[0]["Journalist"]
-        # topjc_2_count = df_topjc2.iloc[0]["Total"]
+        topjc_2_name = df_topjc2.iloc[0]["Journalist"]
+        topjc_2_count = df_topjc2.iloc[0]["Total"]
 
-        # topjc_3_name = df_topjc3.iloc[0]["Journalist"]
-        # topjc_3_count = df_topjc3.iloc[0]["Total"]
+        topjc_3_name = df_topjc3.iloc[0]["Journalist"]
+        topjc_3_count = df_topjc3.iloc[0]["Total"]
 
-        # # Extract the top 3 publications and their counts
-        # topjp_1 = Jour_Comp.iloc[0:1]  # First publication
-        # topjp_2 = Jour_Comp.iloc[1:2]  # Second publication
-        # topjp_3 = Jour_Comp.iloc[2:3]  # Third publication
+        # Extract the top 3 publications and their counts
+        topjp_1 = Jour_Comp.iloc[0:1]  # First publication
+        topjp_2 = Jour_Comp.iloc[1:2]  # Second publication
+        topjp_3 = Jour_Comp.iloc[2:3]  # Third publication
 
-        # # Save them in separate DataFrames
-        # df_topjp1 = topjp_1.reset_index(drop=True)
-        # df_topjp2 = topjp_2.reset_index(drop=True)
-        # df_topjp3 = topjp_3.reset_index(drop=True)
+        # Save them in separate DataFrames
+        df_topjp1 = topjp_1.reset_index(drop=True)
+        df_topjp2 = topjp_2.reset_index(drop=True)
+        df_topjp3 = topjp_3.reset_index(drop=True)
 
-        # # Extract publication name and count for the top 3
-        # topjp_1_name = df_topjp1.iloc[0]["Publication Name"]
-        # # top_1_count = df_topjp1.iloc[0]["Total"]
+        # Extract publication name and count for the top 3
+        topjp_1_name = df_topjp1.iloc[0]["Publication Name"]
+        # top_1_count = df_topjp1.iloc[0]["Total"]
 
-        # topjp_2_name = df_topjp2.iloc[0]["Publication Name"]
-        # # top_2_count = df_topjp2.iloc[0]["Total"]
+        topjp_2_name = df_topjp2.iloc[0]["Publication Name"]
+        # top_2_count = df_topjp2.iloc[0]["Total"]
 
-        # topjp_3_name = df_topjp3.iloc[0]["Publication Name"]
-        # # top_3_count = df_topjp3.iloc[0]["Total"]
+        topjp_3_name = df_topjp3.iloc[0]["Publication Name"]
+        # top_3_count = df_topjp3.iloc[0]["Total"]
 
         
         
