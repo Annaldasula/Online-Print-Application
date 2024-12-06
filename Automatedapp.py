@@ -511,7 +511,8 @@ if file:
         Entity_SOV3['% '] = Entity_SOV3['% '].astype(int)
         Entity_SOV3['% '] = Entity_SOV3['% '].astype(str) + '%'
         # Entity_SOV3 = pd.DataFrame(Entity_SOV3.to_records())
-
+        
+        #News Count Total 
         total_news_count = Entity_SOV3.loc[Entity_SOV3["Entity"] == "Total", "News Count"].values[0]
 
         # Additional MOM DataFrames
@@ -789,7 +790,7 @@ if file:
         Jour_Comp = filtered_df.head(10)
         Jour_Client = filtered_df1.head(10)   
         
-        # # Extract the top 3 publications and their counts
+        # # Extract the top 3 journalits writing in comp and not on client and their counts
         # topjc_1 = Jour_Comp.iloc[0:1]  # First publication
         # topjc_2 = Jour_Comp.iloc[1:2]  # Second publication
         # topjc_3 = Jour_Comp.iloc[2:3]  # Third publication
