@@ -1718,7 +1718,7 @@ f"•The  journalists reporting on {client_name} and not on its competitors are 
                 add_image_to_slide(slide, img_path4)
 
             if i == 1:  
-                img_path5 = generate_line_chart(sov_dt1)  # Generate chart from first DataFrame
+                img_path5 = generate_line_graph(sov_dt1)  # Generate chart from first DataFrame
                 add_image_to_slide1(slide, img_path5)
 
         # Save presentation to BytesIO for download
