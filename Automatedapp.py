@@ -522,15 +522,16 @@ def generate_bar_chart(df):
     
     # Save plot as image
     img_path4 = "bar_chart.png"
-    fig.savefig(img_path4, dpi=300)
+    fig.savefig(img_path4, dpi=300, bbox_inches='tight')
     plt.close(fig)
     return img_path4
     
 def add_image_to_slide(slide, img_path4):
     left = Inches(1)
     top = Inches(1)
-    width = Inches(8)
-    slide.shapes.add_picture(img_path4, left, top, width=width)
+    width = Inches(14.5)  # Specify exact width
+    height = Inches(5.5)  # Specify exact height
+    slide.shapes.add_picture(img_path4, left, top, width=width, height=height)
 
 # def generate_bar_chart(df):
 #     # Filter out unwanted rows
