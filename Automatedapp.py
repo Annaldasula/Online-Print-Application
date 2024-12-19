@@ -591,7 +591,7 @@ def generate_line_chart(df):
     # df["Entity"] = df["Entity"].str.replace("Client-", "", regex=False)
     
     # Filter out unwanted rows
-    df = df[df["Date] != "Total"]
+    df = df[df["Date"] != "Total"]
     # Plot the line graph
     fig, ax = plt.subplots(figsize=(12, 6))
     for column in df.columns[1:]:  # Exclude 'Date' column
