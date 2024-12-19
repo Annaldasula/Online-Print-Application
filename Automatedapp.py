@@ -517,6 +517,11 @@ def generate_bar_chart(df):
     # Customize x-axis ticks and labels for better visibility
     ax.set_xticks(x)
     ax.set_xticklabels(df["Entity"], rotation=45, ha="right", fontsize=12,fontweight="bold")
+
+    # Make y-axis tick labels bold
+    ax.tick_params(axis="y", labelsize=10, labelcolor="black", which="major", width=1, labelrotation=0)
+    for label in ax.get_yticklabels():
+        label.set_fontweight("bold")
     
     # Add gridlines for better readability
     ax.grid(axis="y", linestyle="--", alpha=0.7)
