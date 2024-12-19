@@ -594,16 +594,22 @@ def generate_line_graph(df):
 
     for entity in filtered_df.columns[1:]:  # Exclude the first column (Date)
         ax.plot(filtered_df['Date'].astype(str), filtered_df[entity], marker='o', label=entity)
-        for x, y in zip(df['Date'].astype(str), df[entity]):
+        for x, y in zip(filtered_df['Date'].astype(str), filtered_df[entity]):
             ax.text(x, y, str(y), fontsize=10, ha='right', va='bottom')
 
-    
-    # ax.set_title("Month-on-Month Trends", fontsize=14)
+    # Set labels and title
     ax.set_xlabel("Month", fontsize=12)
     ax.set_ylabel("News Count", fontsize=12)
-    ax.legend(title="Entities", fontsize=10)
+
+    # Adjust legend position to avoid overlapping with the graph
+    ax.legend(title="Entities", fontsize=10, bbox_to_anchor=(1.05, 1), loc='upper left')
+
+    # Grid and other settings
     ax.grid(axis='y', linestyle='--', alpha=0.7)
     plt.xticks(rotation=45)
+
+    # Use tight_layout to prevent clipping of elements
+    plt.tight_layout()
 
     # Save plot as image
     img_path5 = "line_graph.png"
