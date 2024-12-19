@@ -435,10 +435,11 @@ def add_table_to_slide(slide, df, title, textbox_text):
 # # Generate an image from the bar chart
 def generate_bar_chart(df):
     # Filter out unwanted rows
+    df["Entity"] = df["Entity"].str.replace("Client-", "", regex=False)
     df = df[df["Entity"] != "Total"]
     
     # Create the bar chart
-    fig, ax = plt.subplots(figsize=(10, 6))
+    fig, ax = plt.subplots(figsize=(12, 6))
     x = range(len(df["Entity"]))  # Define x positions for the bars
     bars = ax.bar(
         x, 
