@@ -509,7 +509,7 @@ def generate_bar_chart(df):
         )
     
     # Set chart title and axis labels
-    ax.set_title("Share of Voice (SOV)", fontsize=14)
+    # ax.set_title("Share of Voice (SOV)", fontsize=14)
     ax.set_xlabel("Entity", fontsize=12)
     ax.set_ylabel("News Count", fontsize=12)
     
