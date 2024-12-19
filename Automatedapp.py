@@ -445,8 +445,10 @@ def generate_bar_chart(df):
     for bar in bars:
         height = bar.get_height()
         ax.text(bar.get_x() + bar.get_width() / 2, height, f"{height}", ha="center", va="bottom", fontsize=10)
-    ax.set_title("Share of Voice (SOV)", fontsize=14)
+    # ax.set_title("Share of Voice (SOV)", fontsize=14)
     ax.set_xlabel("Entity", fontsize=12)
+    ax.set_xticks(x)
+    ax.set_xticklabels(df["Entity"], rotation=45, ha="right")
     ax.set_ylabel("News Count", fontsize=12)
     ax.grid(axis="y", linestyle="--", alpha=0.7)
     
