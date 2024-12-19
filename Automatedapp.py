@@ -434,23 +434,60 @@ def add_table_to_slide(slide, df, title, textbox_text):
 
 # # Generate an image from the bar chart
 def generate_bar_chart(df):
+    # Filter out unwanted rows
     df = df[df["Entity"] != "Total"]
+    
+    # Create the bar chart
     fig, ax = plt.subplots(figsize=(10, 6))
+    x = range(len(df["Entity"]))  # Define x positions for the bars
     bars = ax.bar(
-        df["Entity"], 
+        x, 
         df["News Count"], 
         color="skyblue", 
         edgecolor="black"
     )
+    
+    # Add data labels on top of the bars
     for bar in bars:
         height = bar.get_height()
-        ax.text(bar.get_x() + bar.get_width() / 2, height, f"{height}", ha="center", va="bottom", fontsize=10)
-    # ax.set_title("Share of Voice (SOV)", fontsize=14)
+        ax.text(
+            bar.get_x() + bar.get_width() / 2, 
+            height, 
+            f"{height}", 
+            ha="center", 
+            va="bottom", 
+            fontsize=10
+        )
+    
+    # Set chart title and axis labels
+    ax.set_title("Share of Voice (SOV)", fontsize=14)
     ax.set_xlabel("Entity", fontsize=12)
+    ax.set_ylabel("News Count", fontsize=12)
+    
+    # Customize x-axis ticks and labels
     ax.set_xticks(x)
     ax.set_xticklabels(df["Entity"], rotation=45, ha="right")
-    ax.set_ylabel("News Count", fontsize=12)
+    
+    # Add gridlines for better readability
     ax.grid(axis="y", linestyle="--", alpha=0.7)
+    
+    # df = df[df["Entity"] != "Total"]
+    # fig, ax = plt.subplots(figsize=(10, 6))
+    # bars = ax.bar(
+    #     df["Entity"], 
+    #     df["News Count"], 
+    #     color="skyblue", 
+    #     edgecolor="black"
+    # )
+    # for bar in bars:
+    #     height = bar.get_height()
+    #     ax.text(bar.get_x() + bar.get_width() / 2, height, f"{height}", ha="center", va="bottom", fontsize=10)
+    # # ax.set_title("Share of Voice (SOV)", fontsize=14)
+    # ax.set_xlabel("Entity", fontsize=12)
+    # ax.set_xticks(x)
+    # ax.set_xticklabels(df["Entity"], rotation=45, ha="right")
+    # ax.set_ylabel("News Count", fontsize=12)
+    # ax.grid(axis="y", linestyle="--", alpha=0.7)
     
     # Save plot as image
     img_path4 = "bar_chart.png"
