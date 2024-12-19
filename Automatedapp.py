@@ -586,6 +586,44 @@ def add_image_to_slide(slide, img_path4):
 #     slide.shapes.add_picture(img_path4, left, top, width=width)
 
 
+def generate_line_chart(df):
+    # Remove 'Client-' prefix from 'Entity' column
+    # df["Entity"] = df["Entity"].str.replace("Client-", "", regex=False)
+    
+    # Filter out unwanted rows
+    df = df[df["Date] != "Total"]
+    # Plot the line graph
+    fig, ax = plt.subplots(figsize=(12, 6))
+    for column in df.columns[1:]:  # Exclude 'Date' column
+        ax.plot(df["Date"], df[column], label=column, marker='o', linewidth=2)
+    # Customize the chart
+    ax.set_title("Trends in News Count Across Hospitals", fontsize=14, fontweight="bold")
+    ax.set_xlabel("Date", fontsize=12, fontweight="bold")
+    ax.set_ylabel("News Count", fontsize=12, fontweight="bold")
+    ax.set_xticks(df["Date"])
+    ax.set_xticklabels(df["Date"], rotation=45, fontsize=10, fontweight="bold")
+    ax.tick_params(axis="y", labelsize=10)
+    for label in ax.get_yticklabels():
+        label.set_fontweight("bold")
+
+    ax.legend(title="Hospitals", fontsize=10, title_fontsize=12, loc="upper left", bbox_to_anchor=(1, 1))
+    ax.grid(axis="y", linestyle="--", alpha=0.7)
+  
+    
+    # Save plot as image
+    img_path5 = "line_chart.png"
+    fig.savefig(img_path5, dpi=300, bbox_inches='tight')
+    plt.close(fig)
+    return img_path5
+    
+def add_image_to_slide1(slide, img_path4):
+    left = Inches(1)
+    top = Inches(1)
+    width = Inches(14.5)  # Specify exact width
+    height = Inches(5.5)  # Specify exact height
+    slide.shapes.add_picture(img_path5, left, top, width=width, height=height)
+
+
     
 def top_10_dfs(df_list, file_name, comments, top_11_flags):
     writer = pd.ExcelWriter(file_name, engine='xlsxwriter')
@@ -1653,6 +1691,10 @@ f"•The  journalists reporting on {client_name} and not on its competitors are 
             if i == 0:  
                 img_path4 = generate_bar_chart(dfs[0])  # Generate chart from first DataFrame
                 add_image_to_slide(slide, img_path4)
+
+            if i == 1:  
+                img_path5 = generate_line_chart(dfs[1])  # Generate chart from first DataFrame
+                add_image_to_slide1(slide, img_path5)
 
         # Save presentation to BytesIO for download
         pptx_output = io.BytesIO()
