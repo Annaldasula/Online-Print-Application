@@ -432,14 +432,62 @@ def add_table_to_slide(slide, df, title, textbox_text):
 #     writer.close()
 
 
-# # Generate an image from the bar chart
+# # # Generate an image from the bar chart
+# def generate_bar_chart(df):
+#     # Filter out unwanted rows
+#     df["Entity"] = df["Entity"].str.replace("Client-", "", regex=False)
+#     df = df[df["Entity"] != "Total"]
+    
+#     # Create the bar chart
+#     fig, ax = plt.subplots(figsize=(12, 6))
+#     x = range(len(df["Entity"]))  # Define x positions for the bars
+#     bars = ax.bar(
+#         x, 
+#         df["News Count"], 
+#         color="skyblue", 
+#         edgecolor="black"
+#     )
+    
+#     # Add data labels on top of the bars
+#     for bar in bars:
+#         height = bar.get_height()
+#         ax.text(
+#             bar.get_x() + bar.get_width() / 2, 
+#             height, 
+#             f"{height}", 
+#             ha="center", 
+#             va="bottom", 
+#             fontsize=10
+#         )
+    
+#     # Set chart title and axis labels
+#     ax.set_title("Share of Voice (SOV)", fontsize=14)
+#     ax.set_xlabel("Entity", fontsize=12)
+#     ax.set_ylabel("News Count", fontsize=12)
+    
+#     # Customize x-axis ticks and labels
+#     ax.set_xticks(x)
+#     ax.set_xticklabels(df["Entity"], rotation=45, ha="right")
+    
+#     # Add gridlines for better readability
+#     ax.grid(axis="y", linestyle="--", alpha=0.7)
+    
+   
+      
+    # # Save plot as image
+    # img_path4 = "bar_chart.png"
+    # fig.savefig(img_path4, dpi=300)
+    # plt.close(fig)
+    # return img_path4
 def generate_bar_chart(df):
-    # Filter out unwanted rows
+    # Remove 'Client-' prefix from 'Entity' column
     df["Entity"] = df["Entity"].str.replace("Client-", "", regex=False)
+    
+    # Filter out unwanted rows
     df = df[df["Entity"] != "Total"]
     
     # Create the bar chart
-    fig, ax = plt.subplots(figsize=(12, 6))
+    fig, ax = plt.subplots(figsize=(12, 6))  # Increase figure width for better label visibility
     x = range(len(df["Entity"]))  # Define x positions for the bars
     bars = ax.bar(
         x, 
@@ -448,9 +496,9 @@ def generate_bar_chart(df):
         edgecolor="black"
     )
     
-    # Add data labels on top of the bars
+    # Add data labels on top of the bars without decimal
     for bar in bars:
-        height = bar.get_height()
+        height = int(bar.get_height())  # Convert height to integer
         ax.text(
             bar.get_x() + bar.get_width() / 2, 
             height, 
@@ -465,37 +513,19 @@ def generate_bar_chart(df):
     ax.set_xlabel("Entity", fontsize=12)
     ax.set_ylabel("News Count", fontsize=12)
     
-    # Customize x-axis ticks and labels
+    # Customize x-axis ticks and labels for better visibility
     ax.set_xticks(x)
-    ax.set_xticklabels(df["Entity"], rotation=45, ha="right")
+    ax.set_xticklabels(df["Entity"], rotation=45, ha="right", fontsize=10)
     
     # Add gridlines for better readability
     ax.grid(axis="y", linestyle="--", alpha=0.7)
-    
-    # df = df[df["Entity"] != "Total"]
-    # fig, ax = plt.subplots(figsize=(10, 6))
-    # bars = ax.bar(
-    #     df["Entity"], 
-    #     df["News Count"], 
-    #     color="skyblue", 
-    #     edgecolor="black"
-    # )
-    # for bar in bars:
-    #     height = bar.get_height()
-    #     ax.text(bar.get_x() + bar.get_width() / 2, height, f"{height}", ha="center", va="bottom", fontsize=10)
-    # # ax.set_title("Share of Voice (SOV)", fontsize=14)
-    # ax.set_xlabel("Entity", fontsize=12)
-    # ax.set_xticks(x)
-    # ax.set_xticklabels(df["Entity"], rotation=45, ha="right")
-    # ax.set_ylabel("News Count", fontsize=12)
-    # ax.grid(axis="y", linestyle="--", alpha=0.7)
     
     # Save plot as image
     img_path4 = "bar_chart.png"
     fig.savefig(img_path4, dpi=300)
     plt.close(fig)
     return img_path4
-
+    
 def add_image_to_slide(slide, img_path4):
     left = Inches(1)
     top = Inches(1)
