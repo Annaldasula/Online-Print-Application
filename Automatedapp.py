@@ -432,8 +432,9 @@ def add_table_to_slide(slide, df, title, textbox_text):
 #     writer.close()
 
 
-# Generate an image from the bar chart
+# # Generate an image from the bar chart
 def generate_bar_chart(df):
+    df = df[df["Entity"] != "Total"]
     fig, ax = plt.subplots(figsize=(10, 6))
     bars = ax.bar(
         df["Entity"], 
@@ -460,6 +461,54 @@ def add_image_to_slide(slide, img_path4):
     top = Inches(1)
     width = Inches(8)
     slide.shapes.add_picture(img_path4, left, top, width=width)
+
+# def generate_bar_chart(df):
+#     # Filter out unwanted rows
+#     df_filtered = df[df["City"] != "Total"]
+    
+#     # Sort the data
+#     # df_sorted = df_filtered.sort_values(by="Industry", ascending=False)
+    
+#     # Create the plot
+#     fig, ax = plt.subplots(figsize=(10, 6))
+#     bars = ax.bar(
+#         df_sorted["City"], 
+#         df_sorted["Industry"], 
+#         color="skyblue", 
+#         edgecolor="black"
+#     )
+    
+#     # Add data labels on top of the bars
+#     for bar in bars:
+#         height = bar.get_height()
+#         ax.text(
+#             bar.get_x() + bar.get_width() / 2, 
+#             height, 
+#             f"{height}", 
+#             ha="center", 
+#             va="bottom", 
+#             fontsize=10
+#         )
+    
+#     # Set chart title and axis labels
+#     ax.set_title("Industry News Count by City", fontsize=14)
+#     ax.set_xlabel("City", fontsize=12)
+#     ax.set_ylabel("News Count", fontsize=12)
+#     ax.grid(axis="y", linestyle="--", alpha=0.7)
+    
+#     # Save plot as image
+#     img_path4 = "bar_chart.png"
+#     fig.savefig(img_path4, dpi=300)
+#     plt.close(fig)
+#     return img_path4
+
+# def add_image_to_slide(slide, img_path4):
+#     left = Inches(1)
+#     top = Inches(1)
+#     width = Inches(8)
+#     slide.shapes.add_picture(img_path4, left, top, width=width)
+
+
     
 def top_10_dfs(df_list, file_name, comments, top_11_flags):
     writer = pd.ExcelWriter(file_name, engine='xlsxwriter')
