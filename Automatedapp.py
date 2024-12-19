@@ -505,7 +505,7 @@ def generate_bar_chart(df):
             f"{height}", 
             ha="center", 
             va="bottom", 
-            fontsize=10
+            fontsize=12,
             fontweight="bold"
         )
     
