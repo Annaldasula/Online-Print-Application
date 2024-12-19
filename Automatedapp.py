@@ -506,16 +506,17 @@ def generate_bar_chart(df):
             ha="center", 
             va="bottom", 
             fontsize=10
+            fontweight="bold"
         )
     
     # Set chart title and axis labels
     # ax.set_title("Share of Voice (SOV)", fontsize=14)
-    ax.set_xlabel("Entity", fontsize=12)
-    ax.set_ylabel("News Count", fontsize=12)
+    ax.set_xlabel("Entity", fontsize=12,fontweight="bold")
+    ax.set_ylabel("News Count", fontsize=12,fontweight="bold")
     
     # Customize x-axis ticks and labels for better visibility
     ax.set_xticks(x)
-    ax.set_xticklabels(df["Entity"], rotation=45, ha="right", fontsize=10)
+    ax.set_xticklabels(df["Entity"], rotation=45, ha="right", fontsize=12,fontweight="bold")
     
     # Add gridlines for better readability
     ax.grid(axis="y", linestyle="--", alpha=0.7)
