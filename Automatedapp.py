@@ -961,7 +961,13 @@ if file:
         filtered_df = Jour_table[Jour_table[client_columns].eq(0).any(axis=1)]
 
         # Find the column with "Client" in its name
-        client_column1 = [col for col in Jour_table.columns if 'Client' in col][0]
+        # Dynamically identify the client column
+        client_columns = [col for col in Jour_table1.columns if isinstance(col, str) and col.startswith("Client")]
+        if client_columns:
+            client_columns = client_columns[0]
+        else:
+            raise ValueError("No columns starting with 'Client' were found.")
+        # client_column1 = [col for col in Jour_table.columns if 'Client' in col][0]
         # Filter the dataframe where the 'Client' column is not equal to zero and all other columns are equal to zero
         filtered_df1 = Jour_table[(Jour_table[client_column1] != 0) & (Jour_table.drop([client_column1, 'Journalist', 'Publication Name','Total'], axis=1).eq(0).all(axis=1))]
 
