@@ -479,174 +479,100 @@ def add_table_to_slide(slide, df, title, textbox_text):
     # fig.savefig(img_path4, dpi=300)
     # plt.close(fig)
     # return img_path4
-def generate_bar_chart(df):
-    # Remove 'Client-' prefix from 'Entity' column
-    df["Entity"] = df["Entity"].str.replace("Client-", "", regex=False)
-    
-    # Filter out unwanted rows
-    df = df[df["Entity"] != "Total"]
-    
-    # Create the bar chart
-    fig, ax = plt.subplots(figsize=(12, 6))  # Increase figure width for better label visibility
-    x = range(len(df["Entity"]))  # Define x positions for the bars
-    bars = ax.bar(
-        x, 
-        df["News Count"], 
-        color="skyblue", 
-        edgecolor="black"
-    )
-    
-    # Add data labels on top of the bars without decimal
-    for bar in bars:
-        height = int(bar.get_height())  # Convert height to integer
-        ax.text(
-            bar.get_x() + bar.get_width() / 2, 
-            height, 
-            f"{height}", 
-            ha="center", 
-            va="bottom", 
-            fontsize=12,
-            fontweight="bold"
-        )
-    
-    # Set chart title and axis labels
-    # ax.set_title("Share of Voice (SOV)", fontsize=14)
-    ax.set_xlabel("Entity", fontsize=12,fontweight="bold")
-    ax.set_ylabel("News Count", fontsize=12,fontweight="bold")
-    
-    # Customize x-axis ticks and labels for better visibility
-    ax.set_xticks(x)
-    ax.set_xticklabels(df["Entity"], rotation=45, ha="right", fontsize=12,fontweight="bold")
-
-    # Make y-axis tick labels bold
-    ax.tick_params(axis="y", labelsize=10, labelcolor="black", which="major", width=1, labelrotation=0)
-    for label in ax.get_yticklabels():
-        label.set_fontweight("bold")
-    
-    # Add gridlines for better readability
-    ax.grid(axis="y", linestyle="--", alpha=0.7)
-    
-    # Save plot as image
-    img_path4 = "bar_chart.png"
-    fig.savefig(img_path4, dpi=300, bbox_inches='tight')
-    plt.close(fig)
-    return img_path4
-    
-def add_image_to_slide(slide, img_path4):
-    left = Inches(1)
-    top = Inches(1)
-    width = Inches(14.5)  # Specify exact width
-    height = Inches(5.5)  # Specify exact height
-    slide.shapes.add_picture(img_path4, left, top, width=width, height=height)
-
 # def generate_bar_chart(df):
+#     # Remove 'Client-' prefix from 'Entity' column
+#     df["Entity"] = df["Entity"].str.replace("Client-", "", regex=False)
+    
 #     # Filter out unwanted rows
-#     df_filtered = df[df["City"] != "Total"]
+#     df = df[df["Entity"] != "Total"]
     
-#     # Sort the data
-#     # df_sorted = df_filtered.sort_values(by="Industry", ascending=False)
-    
-#     # Create the plot
-#     fig, ax = plt.subplots(figsize=(10, 6))
+#     # Create the bar chart
+#     fig, ax = plt.subplots(figsize=(12, 6))  # Increase figure width for better label visibility
+#     x = range(len(df["Entity"]))  # Define x positions for the bars
 #     bars = ax.bar(
-#         df_sorted["City"], 
-#         df_sorted["Industry"], 
+#         x, 
+#         df["News Count"], 
 #         color="skyblue", 
 #         edgecolor="black"
 #     )
     
-#     # Add data labels on top of the bars
+#     # Add data labels on top of the bars without decimal
 #     for bar in bars:
-#         height = bar.get_height()
+#         height = int(bar.get_height())  # Convert height to integer
 #         ax.text(
 #             bar.get_x() + bar.get_width() / 2, 
 #             height, 
 #             f"{height}", 
 #             ha="center", 
 #             va="bottom", 
-#             fontsize=10
+#             fontsize=12,
+#             fontweight="bold"
 #         )
     
 #     # Set chart title and axis labels
-#     ax.set_title("Industry News Count by City", fontsize=14)
-#     ax.set_xlabel("City", fontsize=12)
-#     ax.set_ylabel("News Count", fontsize=12)
+#     # ax.set_title("Share of Voice (SOV)", fontsize=14)
+#     ax.set_xlabel("Entity", fontsize=12,fontweight="bold")
+#     ax.set_ylabel("News Count", fontsize=12,fontweight="bold")
+    
+#     # Customize x-axis ticks and labels for better visibility
+#     ax.set_xticks(x)
+#     ax.set_xticklabels(df["Entity"], rotation=45, ha="right", fontsize=12,fontweight="bold")
+
+#     # Make y-axis tick labels bold
+#     ax.tick_params(axis="y", labelsize=10, labelcolor="black", which="major", width=1, labelrotation=0)
+#     for label in ax.get_yticklabels():
+#         label.set_fontweight("bold")
+    
+#     # Add gridlines for better readability
 #     ax.grid(axis="y", linestyle="--", alpha=0.7)
     
 #     # Save plot as image
 #     img_path4 = "bar_chart.png"
-#     fig.savefig(img_path4, dpi=300)
+#     fig.savefig(img_path4, dpi=300, bbox_inches='tight')
 #     plt.close(fig)
 #     return img_path4
-
+    
 # def add_image_to_slide(slide, img_path4):
 #     left = Inches(1)
 #     top = Inches(1)
-#     width = Inches(8)
-#     slide.shapes.add_picture(img_path4, left, top, width=width)
+#     width = Inches(14.5)  # Specify exact width
+#     height = Inches(5.5)  # Specify exact height
+#     slide.shapes.add_picture(img_path4, left, top, width=width, height=height)
 
-def generate_line_graph(df):
-    fig, ax = plt.subplots(figsize=(15, 5.6))
+
+# def generate_line_graph(df):
+#     fig, ax = plt.subplots(figsize=(15, 5.6))
     
-    # Exclude the 'Total' column and row for the graph
-    filtered_df = df.loc[df['Date'] != 'Total'].copy()
-    filtered_df = filtered_df.drop(columns=['Total'], errors='ignore')
+#     # Exclude the 'Total' column and row for the graph
+#     filtered_df = df.loc[df['Date'] != 'Total'].copy()
+#     filtered_df = filtered_df.drop(columns=['Total'], errors='ignore')
 
-    for entity in filtered_df.columns[1:]:  # Exclude the first column (Date)
-        ax.plot(filtered_df['Date'].astype(str), filtered_df[entity], marker='o', label=entity)
-        for x, y in zip(filtered_df['Date'].astype(str), filtered_df[entity]):
-            ax.text(x, y, str(y), fontsize=10, ha='right', va='bottom')
+#     for entity in filtered_df.columns[1:]:  # Exclude the first column (Date)
+#         ax.plot(filtered_df['Date'].astype(str), filtered_df[entity], marker='o', label=entity)
+#         for x, y in zip(filtered_df['Date'].astype(str), filtered_df[entity]):
+#             ax.text(x, y, str(y), fontsize=10, ha='right', va='bottom')
 
-    # Set labels and title
-    ax.set_xlabel("Month", fontsize=12)
-    ax.set_ylabel("News Count", fontsize=12)
+#     # Set labels and title
+#     ax.set_xlabel("Month", fontsize=12)
+#     ax.set_ylabel("News Count", fontsize=12)
 
-    # Adjust legend position to avoid overlapping with the graph
-    ax.legend(title="Entities", fontsize=10, bbox_to_anchor=(1.05, 1), loc='upper left')
+#     # Adjust legend position to avoid overlapping with the graph
+#     ax.legend(title="Entities", fontsize=10, bbox_to_anchor=(1.05, 1), loc='upper left')
 
-    # Grid and other settings
-    ax.grid(axis='y', linestyle='--', alpha=0.7)
-    plt.xticks(rotation=45)
+#     # Grid and other settings
+#     ax.grid(axis='y', linestyle='--', alpha=0.7)
+#     plt.xticks(rotation=45)
 
-    # Use tight_layout to prevent clipping of elements
-    plt.tight_layout()
+#     # Use tight_layout to prevent clipping of elements
+#     plt.tight_layout()
 
-    # Save plot as image
-    img_path5 = "line_graph.png"
-    fig.savefig(img_path5, dpi=300)
-    plt.close(fig)
-    return img_path5
-
-# def generate_line_chart(df):
-#     # Remove 'Client-' prefix from 'Entity' column
-#     # df["Entity"] = df["Entity"].str.replace("Client-", "", regex=False)
-    
-#     # Filter out unwanted rows
-#     df = df[df["Date"] != "Total"]
-#     # Plot the line graph
-#     fig, ax = plt.subplots(figsize=(12, 6))
-#     for column in df.columns[1:]:  # Exclude 'Date' column
-#         ax.plot(df["Date"], df[column], label=column, marker='o', linewidth=2)
-#     # Customize the chart
-#     ax.set_title("Trends in News Count Across Hospitals", fontsize=14, fontweight="bold")
-#     ax.set_xlabel("Date", fontsize=12, fontweight="bold")
-#     ax.set_ylabel("News Count", fontsize=12, fontweight="bold")
-#     ax.set_xticks(df["Date"])
-#     ax.set_xticklabels(df["Date"], rotation=45, fontsize=10, fontweight="bold")
-#     ax.tick_params(axis="y", labelsize=10)
-#     for label in ax.get_yticklabels():
-#         label.set_fontweight("bold")
-
-#     ax.legend(title="Hospitals", fontsize=10, title_fontsize=12, loc="upper left", bbox_to_anchor=(1, 1))
-#     ax.grid(axis="y", linestyle="--", alpha=0.7)
-  
-    
 #     # Save plot as image
-#     img_path5 = "line_chart.png"
-#     fig.savefig(img_path5, dpi=300, bbox_inches='tight')
+#     img_path5 = "line_graph.png"
+#     fig.savefig(img_path5, dpi=300)
 #     plt.close(fig)
 #     return img_path5
-    
+
+
 def add_image_to_slide1(slide, img_path4):
     left = Inches(1)
     top = Inches(1)
@@ -1718,14 +1644,14 @@ f"•The  journalists reporting on {client_name} and not on its competitors are 
         for i, (df, title) in enumerate(zip(dfs, table_titles)):
             slide = prs.slides.add_slide(prs.slide_layouts[6])
             add_table_to_slide(slide, df, title, textbox_text[i])
-            # Add image only to the first slide
-            if i == 0:  
-                img_path4 = generate_bar_chart(dfs[0])  # Generate chart from first DataFrame
-                add_image_to_slide(slide, img_path4)
+            # # Add image only to the first slide
+            # if i == 0:  
+            #     img_path4 = generate_bar_chart(dfs[0])  # Generate chart from first DataFrame
+            #     add_image_to_slide(slide, img_path4)
 
-            if i == 1:  
-                img_path5 = generate_line_graph(sov_dt1)  # Generate chart from first DataFrame
-                add_image_to_slide1(slide, img_path5)
+            # if i == 1:  
+            #     img_path5 = generate_line_graph(sov_dt1)  # Generate chart from first DataFrame
+            #     add_image_to_slide1(slide, img_path5)
 
         # Save presentation to BytesIO for download
         pptx_output = io.BytesIO()
