@@ -902,7 +902,12 @@ if file:
         # top_3_count = df_topjt3.iloc[0]["Total"]
 
         # Dynamically identify the client column
-        client_columns = [col for col in Jour_table1.columns if col.startswith("Client-")][0]
+        client_columns = [col for col in Jour_table1.columns if isinstance(col, str) and col.startswith("Client-")]
+        if client_columns:
+            client_columns = client_columns[0]
+        else:
+            raise ValueError("No columns starting with 'Client-' were found.")
+        # client_columns = [col for col in Jour_table1.columns if col.startswith("Client-")][0]
 
         # Select the "Publication Name" column and the dynamically identified client column
         selected_column = Jour_table1[["Journalist","Publication Name", client_columns]]
