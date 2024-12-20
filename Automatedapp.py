@@ -663,25 +663,25 @@ if file:
         Entity_SOV3['% '] = Entity_SOV3['% '].astype(str) + '%'
         # Entity_SOV3 = pd.DataFrame(Entity_SOV3.to_records())
 
-        # Plot the bar graph
-        plt.figure(figsize=(10, 6))
-        bars = plt.bar(
-          Entity_SOV3['Entity'], 
-          Entity_SOV3['News Count'], 
-          color='skyblue', 
-          edgecolor='black'
-           )
-        # Add labels on top of each bar
-        for bar in bars:
-            height = bar.get_height()
-            plt.text(bar.get_x() + bar.get_width() / 2, height, f'{height}', ha='center', va='bottom', fontsize=10)
+        # # Plot the bar graph
+        # plt.figure(figsize=(10, 6))
+        # bars = plt.bar(
+        #   Entity_SOV3['Entity'], 
+        #   Entity_SOV3['News Count'], 
+        #   color='skyblue', 
+        #   edgecolor='black'
+        #    )
+        # # Add labels on top of each bar
+        # for bar in bars:
+        #     height = bar.get_height()
+        #     plt.text(bar.get_x() + bar.get_width() / 2, height, f'{height}', ha='center', va='bottom', fontsize=10)
 
-        # Customize the graph
-        plt.title("Share of Voice (SOV)", fontsize=14)
-        plt.xlabel("Entity", fontsize=12)
-        plt.ylabel("News Count", fontsize=12)
-        plt.grid(axis='y', linestyle='--', alpha=0.7)
-        plt.tight_layout()
+        # # Customize the graph
+        # plt.title("Share of Voice (SOV)", fontsize=14)
+        # plt.xlabel("Entity", fontsize=12)
+        # plt.ylabel("News Count", fontsize=12)
+        # plt.grid(axis='y', linestyle='--', alpha=0.7)
+        # plt.tight_layout()
 
 
         
