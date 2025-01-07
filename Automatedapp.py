@@ -588,6 +588,10 @@ def generate_bar_pchart(df):
     # Remove the 'Total' column if it exists
     if 'Total' in df.columns:
         df = df.drop(columns=['Total'])
+
+    # Remove the 'Total' column if it exists
+    if 'Grand Total' in df.rows:
+        df = df.drop(columns=['Grand Total'])
     
     # Plotting
     fig, ax = plt.subplots(figsize=(12, 6))  # Figure size
