@@ -598,12 +598,12 @@ def generate_bar_pchart(df):
         ax.bar_label(container, fmt='%d', label_type='edge', fontsize=10, padding=3)
     
     # Set chart labels and title
-    ax.set_xlabel("Publication Name", fontsize=12, fontweight="bold")
+    ax.set_xlabel("Publication Type", fontsize=12, fontweight="bold")
     ax.set_ylabel("News Count", fontsize=12, fontweight="bold")
-    ax.set_title("Hospital Mentions by Publication", fontsize=14, fontweight="bold")
+    # ax.set_title("Hospital Mentions by Publication", fontsize=14, fontweight="bold")
     
     # Customize x-axis labels for better readability
-    ax.set_xticklabels(df.index, rotation=45, ha="right", fontsize=10, fontweight="bold")
+    ax.set_xticklabels(df["Publication Type"], rotation=45, ha="right", fontsize=10, fontweight="bold")
     
     # Make y-axis tick labels bold
     ax.tick_params(axis="y", labelsize=10, labelcolor="black")
