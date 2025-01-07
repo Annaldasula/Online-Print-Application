@@ -600,7 +600,7 @@ def generate_bar_pchart(df):
 
     # Plotting
     fig, ax = plt.subplots(figsize=(12, 6))  # Figure size
-    bars = df.plot(kind='bar', ax=ax, stacked=False, width=0.8, cmap='Set3')  # Plot bars with colormap
+    bars = df.plot(kind='bar', ax=ax, stacked=False, width=0.8, cmap='Set3',edgecolor="black")  # Plot bars with colormap
 
     # Add data labels on top of the bars
     for container in ax.containers:
