@@ -585,14 +585,18 @@ def generate_bar_pchart(df):
     # Remove 'Client-' prefix from column names
     df.columns = df.columns.str.replace("Client-", "", regex=False)
     
-    # Remove the 'Total' column if it exists
-    if 'Total' in df.columns:
-        df = df.drop(columns=['Total'])
+    # # Remove the 'Total' column if it exists
+    # if 'Total' in df.columns:
+    #     df = df.drop(columns=['Total'])
 
-    # Remove the 'Total' column if it exists
-    if 'GrandTotal' in df.rows:
-        df = df.drop(columns=['GrandTotal'])
-    
+    # # Remove the 'Total' column if it exists
+    # if 'GrandTotal' in df.rows:
+    #     df = df.drop(columns=['GrandTotal'])
+
+    # Remove 'Total' and 'GrandTotal' rows and columns
+    df = df.loc[~df["Publication Type"].isin(["Total", "GrandTotal"])]
+    df = df.drop(columns=["Total", "GrandTotal"], errors="ignore")
+
     # Plotting
     fig, ax = plt.subplots(figsize=(12, 6))  # Figure size
     bars = df.plot(kind='bar', ax=ax, stacked=False, width=0.8, cmap='tab10')  # Plot bars with colormap
