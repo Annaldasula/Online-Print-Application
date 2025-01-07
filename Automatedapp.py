@@ -582,58 +582,38 @@ def add_image_to_slide1(slide, img_path4):
 
 # Generate bar chart
 def generate_bar_pchart(df):
-    # Remove 'Client-' prefix from 'Entity' column
+    # Remove 'Client-' prefix from column names
     df.columns = df.columns.str.replace("Client-", "", regex=False)
     
-    # Drop the 'Total' column if it exists
+    # Remove the 'Total' column if it exists
     if 'Total' in df.columns:
         df = df.drop(columns=['Total'])
     
-    # Sum news count by publication
-    # df['Total'] = df.sum(axis=1)
-    
-    # Create the bar chart
-    fig, ax = plt.subplots(figsize=(12, 6))  # Increase figure width for better label visibility
-    x = range(len(df.index))  # Define x positions for the bars
-    colors = plt.cm.tab10(np.linspace(0, 1, len(df.index)))  # Use a colormap for distinct colors
+    # Plotting
+    fig, ax = plt.subplots(figsize=(12, 6))  # Figure size
+    bars = df.plot(kind='bar', ax=ax, stacked=False, width=0.8, cmap='tab10')  # Plot bars with colormap
 
-    bars = ax.bar(
-        x, 
-        df['Total'], 
-        color=colors, 
-        edgecolor="black"
-    )
+    # Add data labels on top of the bars
+    for container in ax.containers:
+        ax.bar_label(container, fmt='%d', label_type='edge', fontsize=10, padding=3)
     
-    # Add data labels on top of the bars without decimal
-    for bar in bars:
-        height = int(bar.get_height())  # Convert height to integer
-        ax.text(
-            bar.get_x() + bar.get_width() / 2, 
-            height, 
-            f"{height}", 
-            ha="center", 
-            va="bottom", 
-            fontsize=12,
-            fontweight="bold"
-        )
-    
-    # Set chart title and axis labels
+    # Set chart labels and title
     ax.set_xlabel("Publication Name", fontsize=12, fontweight="bold")
     ax.set_ylabel("News Count", fontsize=12, fontweight="bold")
+    ax.set_title("Hospital Mentions by Publication", fontsize=14, fontweight="bold")
     
-    # Customize x-axis ticks and labels for better visibility
-    ax.set_xticks(x)
-    ax.set_xticklabels(df.index, rotation=45, ha="right", fontsize=12, fontweight="bold")
-
+    # Customize x-axis labels for better readability
+    ax.set_xticklabels(df.index, rotation=45, ha="right", fontsize=10, fontweight="bold")
+    
     # Make y-axis tick labels bold
-    ax.tick_params(axis="y", labelsize=10, labelcolor="black", which="major", width=1, labelrotation=0)
+    ax.tick_params(axis="y", labelsize=10, labelcolor="black")
     for label in ax.get_yticklabels():
         label.set_fontweight("bold")
+
+    # Add legend
+    ax.legend(title="Hospitals", bbox_to_anchor=(1.05, 1), loc='upper left')
     
-    # Add gridlines for better readability
-    ax.grid(axis="y", linestyle="--", alpha=0.7)
-    
-    # Save plot as image
+    # Save the plot
     img_path6 = "bar_chart.png"
     fig.savefig(img_path6, dpi=300, bbox_inches='tight')
     plt.close(fig)
