@@ -582,25 +582,59 @@ def add_image_to_slide1(slide, img_path4):
 
 # Generate bar chart
 def generate_bar_pchart(df):
-    fig, ax = plt.subplots(figsize=(12, 6))
+    # Remove 'Client-' prefix from 'Entity' column
+    df.columns = df.columns.str.replace("Client-", "", regex=False)
     
-    # Plotting the data
-    for column in df.columns[1:]:  # Exclude the 'Publication Name'
-        ax.bar(df["Publication Name"], df[column], label=column)
+    # Drop the 'Total' column if it exists
+    if 'Total' in df.columns:
+        df = df.drop(columns=['Total'])
     
-    # Add title and labels
+    # Sum news count by publication
+    df['Total'] = df.sum(axis=1)
+    
+    # Create the bar chart
+    fig, ax = plt.subplots(figsize=(12, 6))  # Increase figure width for better label visibility
+    x = range(len(df.index))  # Define x positions for the bars
+    colors = plt.cm.tab10(np.linspace(0, 1, len(df.index)))  # Use a colormap for distinct colors
+
+    bars = ax.bar(
+        x, 
+        df['Total'], 
+        color=colors, 
+        edgecolor="black"
+    )
+    
+    # Add data labels on top of the bars without decimal
+    for bar in bars:
+        height = int(bar.get_height())  # Convert height to integer
+        ax.text(
+            bar.get_x() + bar.get_width() / 2, 
+            height, 
+            f"{height}", 
+            ha="center", 
+            va="bottom", 
+            fontsize=12,
+            fontweight="bold"
+        )
+    
+    # Set chart title and axis labels
     ax.set_xlabel("Publication Name", fontsize=12, fontweight="bold")
     ax.set_ylabel("News Count", fontsize=12, fontweight="bold")
-    ax.set_xticklabels(df["Publication Name"], rotation=30, ha="right", fontsize=12, fontweight="bold")
     
-    # Customize legend
-    ax.legend(title="Hospitals", fontsize=10, bbox_to_anchor=(1.05, 1), loc='upper left')
+    # Customize x-axis ticks and labels for better visibility
+    ax.set_xticks(x)
+    ax.set_xticklabels(df.index, rotation=45, ha="right", fontsize=12, fontweight="bold")
+
+    # Make y-axis tick labels bold
+    ax.tick_params(axis="y", labelsize=10, labelcolor="black", which="major", width=1, labelrotation=0)
+    for label in ax.get_yticklabels():
+        label.set_fontweight("bold")
     
-    # Grid and layout adjustments
-    ax.grid(axis='y', linestyle="--", alpha=0.7)
+    # Add gridlines for better readability
+    ax.grid(axis="y", linestyle="--", alpha=0.7)
     
     # Save plot as image
-    img_path6 = "hospital_bar_chart.png"
+    img_path6 = "bar_chart.png"
     fig.savefig(img_path6, dpi=300, bbox_inches='tight')
     plt.close(fig)
     return img_path6
