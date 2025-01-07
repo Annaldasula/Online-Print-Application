@@ -590,7 +590,7 @@ def generate_bar_pchart(df):
         df = df.drop(columns=['Total'])
     
     # Sum news count by publication
-    df['Total'] = df.sum(axis=1)
+    # df['Total'] = df.sum(axis=1)
     
     # Create the bar chart
     fig, ax = plt.subplots(figsize=(12, 6))  # Increase figure width for better label visibility
