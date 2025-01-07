@@ -479,6 +479,7 @@ def add_table_to_slide(slide, df, title, textbox_text):
     # fig.savefig(img_path4, dpi=300)
     # plt.close(fig)
     # return img_path4
+
 def generate_bar_chart(df):
     # Remove 'Client-' prefix from 'Entity' column
     df["Entity"] = df["Entity"].str.replace("Client-", "", regex=False)
@@ -553,11 +554,11 @@ def generate_line_graph(df):
             ax.text(x, y, str(y), fontsize=10, ha='right', va='bottom')
 
     # Set labels and title
-    ax.set_xlabel("Month", fontsize=12)
-    ax.set_ylabel("News Count", fontsize=12)
+    ax.set_xlabel("Month", fontsize=12,fontweight="bold")
+    ax.set_ylabel("News Count", fontsize=12,fontweight="bold")
 
     # Adjust legend position to avoid overlapping with the graph
-    ax.legend(title="Entities", fontsize=10, bbox_to_anchor=(1.05, 1), loc='upper left')
+    ax.legend(title="Entities", fontsize=10, bbox_to_anchor=(1.05, 1), loc='upper left',fontweight="bold")
 
     # Grid and other settings
     ax.grid(axis='y', linestyle='--', alpha=0.7)
