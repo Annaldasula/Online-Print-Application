@@ -590,8 +590,8 @@ def generate_bar_pchart(df):
         df = df.drop(columns=['Total'])
 
     # Remove the 'Total' column if it exists
-    if 'Grand Total' in df.rows:
-        df = df.drop(columns=['Grand Total'])
+    if 'GrandTotal' in df.rows:
+        df = df.drop(columns=['GrandTotal'])
     
     # Plotting
     fig, ax = plt.subplots(figsize=(12, 6))  # Figure size
