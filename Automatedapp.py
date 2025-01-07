@@ -1709,8 +1709,8 @@ f"•The  journalists reporting on {client_name} and not on its competitors are 
                 img_path5 = generate_line_graph(sov_dt1)  # Generate chart from first DataFrame
                 add_image_to_slide1(slide, img_path5)
 
-            if i == 2:  
-                img_path6 = generate_bar_pchart(dfs[2])  # Generate chart from first DataFrame
+            if i == 4:  
+                img_path6 = generate_bar_pchart(dfs[4])  # Generate chart from first DataFrame
                 add_image_to_slide2(slide, img_path6)
 
         # Save presentation to BytesIO for download
