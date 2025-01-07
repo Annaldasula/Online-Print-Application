@@ -551,7 +551,7 @@ def generate_line_graph(df):
     for entity in filtered_df.columns[1:]:  # Exclude the first column (Date)
         ax.plot(filtered_df['Date'].astype(str), filtered_df[entity], marker='o', label=entity)
         for x, y in zip(filtered_df['Date'].astype(str), filtered_df[entity]):
-            ax.text(x, y, str(y), fontsize=10, ha='right', va='bottom')
+            ax.text(x, y, str(y), fontsize=10, ha='right', va='bottom',fontweight="bold")
 
     # Set labels and title
     ax.set_xlabel("Month", fontsize=12,fontweight="bold")
