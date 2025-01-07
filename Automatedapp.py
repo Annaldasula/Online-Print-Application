@@ -493,7 +493,7 @@ def generate_bar_chart(df):
     bars = ax.bar(
         x, 
         df["News Count"], 
-        color="skyblue", 
+        color="orange", 
         edgecolor="black"
     )
     
