@@ -558,7 +558,7 @@ def generate_line_graph(df):
     ax.set_ylabel("News Count", fontsize=12,fontweight="bold")
 
     # Adjust legend position to avoid overlapping with the graph
-    ax.legend(title="Entities", fontsize=10, bbox_to_anchor=(1.05, 1), loc='upper left',fontweight="bold")
+    ax.legend(title="Entities", fontsize=10, bbox_to_anchor=(1.05, 1), loc='upper left')
 
     # Grid and other settings
     ax.grid(axis='y', linestyle='--', alpha=0.7)
