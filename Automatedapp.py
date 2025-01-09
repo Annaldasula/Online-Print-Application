@@ -635,7 +635,40 @@ def add_image_to_slide2(slide, img_path6):
     height = Inches(5.5)  # Specify exact height
     slide.shapes.add_picture(img_path6, left, top, width=width, height=height)
 
+# Function to generate word cloud
+def generate_word_cloud(df):
+    text = ' '.join(df['Headline'].astype(str))
+    stopwords = set(STOPWORDS)
+    wordcloud = WordCloud(stopwords=stopwords, background_color="white" ,width=550,
+        height=450,max_font_size=90, max_words=120,colormap='Set1',collocations=False).generate(text)
     
+    # Plotting the word cloud
+    fig, ax = plt.subplots(figsize=(6, 6), facecolor = 'black', edgecolor='black')
+    ax.imshow(wordcloud, interpolation='bilinear')
+    # ax.tight_layout(pad = 0) 
+    ax.axis('off')
+    
+    # Save plot as image
+    img_path11 = "wordcloud.png"
+    fig.savefig(img_path11, dpi=300, bbox_inches='tight')
+    plt.close(fig)
+    
+    return img_path11
+
+    # # Example usage
+    # img_path11 = generate_word_cloud(df)
+    # print(f"Word cloud saved at: {img_path11}")
+
+# Function to add image to slide (similar to the example you shared)
+def add_image_to_slide11(slide, img_path11):
+    from pptx.util import Inches
+    left = Inches(0.5)
+    top = Inches(1.5)
+    width = Inches(10)  # Adjust width
+    height = Inches(6)  # Adjust height
+    slide.shapes.add_picture(img_path11, left, top, width=width, height=height)
+
+
 def top_10_dfs(df_list, file_name, comments, top_11_flags):
     writer = pd.ExcelWriter(file_name, engine='xlsxwriter')
     row = 2
