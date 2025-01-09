@@ -25,6 +25,7 @@ from pptx.dml.color import RGBColor
 from pptx.enum.text import MSO_VERTICAL_ANCHOR
 from pptx.util import Inches
 from io import BytesIO
+from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
 
 
 # Streamlit app with a sidebar layout
