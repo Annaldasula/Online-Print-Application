@@ -1925,7 +1925,7 @@ if file:
         # Create a new workbook to store the updated sheets
         updated_workbook = pd.ExcelWriter('Similar_News_Grouped.xlsx', engine='xlsxwriter')
 
-        sim_per = st.slider("Select Max Number of Words", 5, 100, 65)        
+        sim_per = st.slider("Select Percentage for Similarity", 5, 100, 65)        
 
         # Iterate over unique entities
         for entity in entities:
