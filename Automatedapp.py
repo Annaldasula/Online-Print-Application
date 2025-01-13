@@ -1925,6 +1925,8 @@ if file:
         # Create a new workbook to store the updated sheets
         updated_workbook = pd.ExcelWriter('Similar_News_Grouped.xlsx', engine='xlsxwriter')
 
+        sim_per = st.slider("Select Max Number of Words", 5, 100, 65)        
+
         # Iterate over unique entities
         for entity in entities:
             # Filter data for the current entity
@@ -1933,7 +1935,7 @@ if file:
             # for each unique value in Cleaned_Headline within the entity
             for headline in entity_data['Cleaned_Headline'].unique():
                 # Compute Levenshtein distance and set to True if >= a limit
-                entity_data[headline] = entity_data['Cleaned_Headline'].apply(lambda x: fuzz.ratio(x, headline) >= 70)
+                entity_data[headline] = entity_data['Cleaned_Headline'].apply(lambda x: fuzz.ratio(x, headline) >= sim_per)
 
                 # Set a name for the group (the shortest headline)
                 m = np.min(entity_data[entity_data[headline] == True]['Cleaned_Headline'])
