@@ -1119,13 +1119,29 @@ if file:
         # Fill missing values in 'Influencer' column with 'Bureau News'
         # data['Journalist'] = data['Journalist'].fillna('Bureau News')
 
-        # Function to classify news exclusivity and topic
+        # # Function to classify news exclusivity and topic
+        # def classify_exclusivity(row):
+        #     entity_name = row['Entity']
+        #     if entity_name.lower() in row['Headline'].lower():
+        #         return "Exclusive"
+        #     else:
+        #         return "Not Exclusive"
+
         def classify_exclusivity(row):
             entity_name = row['Entity']
-            if entity_name.lower() in row['Headline'].lower():
+            headline = row['Headline']
+            
+            # Ensure both entity_name and headline are strings
+            if isinstance(entity_name, float) or isinstance(headline, float):
+                return "Not Exclusive"
+            if str(entity_name).lower() in str(headline).lower():
                 return "Exclusive"
             else:
                 return "Not Exclusive"
+
+
+
+        
 
         finaldata['Exclusivity'] = finaldata.apply(classify_exclusivity, axis=1)
 
