@@ -829,22 +829,48 @@ if file:
         # Extract the top 3 publications and their counts
         top_1 = pubs_table1.iloc[0:1]  # First publication
         top_2 = pubs_table1.iloc[1:2]  # Second publication
-        top_3 = pubs_table1.iloc[2:3]  # Third publication
+        # Check if a third publication exists
+        if len(pubs_table1) > 2:
+            top_3 = pubs_table1.iloc[2:3]  # Third publication
+            df_top3 = top_3.reset_index(drop=True)
+            top_3_name = df_top3.iloc[0]["Publication Name"]
+            top_3_count = df_top3.iloc[0]["Total"]
+        else:
+            top_3_name = ""
+            top_3_count = 0  # You can assign any default value for count
 
-        # Save them in separate DataFrames
+        # Save the first two publications in separate DataFrames
         df_top1 = top_1.reset_index(drop=True)
         df_top2 = top_2.reset_index(drop=True)
-        df_top3 = top_3.reset_index(drop=True)
 
-        # Extract publication name and count for the top 3
+        # Extract publication name and count for the top 2
         top_1_name = df_top1.iloc[0]["Publication Name"]
         top_1_count = df_top1.iloc[0]["Total"]
 
         top_2_name = df_top2.iloc[0]["Publication Name"]
         top_2_count = df_top2.iloc[0]["Total"]
+        
 
-        top_3_name = df_top3.iloc[0]["Publication Name"]
-        top_3_count = df_top3.iloc[0]["Total"]
+        # # Extract the top 3 publications and their counts
+        # top_1 = pubs_table1.iloc[0:1]  # First publication
+        # top_2 = pubs_table1.iloc[1:2]  # Second publication
+        # top_3 = pubs_table1.iloc[2:3]  # Third publication
+
+        # # Save them in separate DataFrames
+        # df_top1 = top_1.reset_index(drop=True)
+        # df_top2 = top_2.reset_index(drop=True)
+        # df_top3 = top_3.reset_index(drop=True)
+
+        # # Extract publication name and count for the top 3
+        # top_1_name = df_top1.iloc[0]["Publication Name"]
+        # top_1_count = df_top1.iloc[0]["Total"]
+
+        # top_2_name = df_top2.iloc[0]["Publication Name"]
+        # top_2_count = df_top2.iloc[0]["Total"]
+
+        # top_3_name = df_top3.iloc[0]["Publication Name"]
+        # top_3_count = df_top3.iloc[0]["Total"]
+        
 
 
         # Dynamically identify the client column
