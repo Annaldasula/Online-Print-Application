@@ -885,12 +885,24 @@ if file:
         # Extract the top 3 publications and their counts
         topc_1 = selected_columns.iloc[0:1]  # First publication
         topc_2 = selected_columns.iloc[1:2]  # Second publication
-        topc_3 = selected_columns.iloc[2:3]  # Third publication
+        
+        # Check if a third publication exists
+        if len(selected_columns) > 2:
+            topc_3 = selected_columns.iloc[2:3]  # Third publication
+            df_topc3 = topc_3.reset_index(drop=True)
+            topc_3_name = df_topc3.iloc[0]["Publication Name"]
+            topc_3_count = df_topc3.iloc[0][client_column]
+        else:
+            topc_3_name = ""
+            topc_3_count = 0  # You can assign any default value for count
+
+        
+        # topc_3 = selected_columns.iloc[2:3]  # Third publication
 
         # Save them in separate DataFrames
         df_topc1 = topc_1.reset_index(drop=True)
         df_topc2 = topc_2.reset_index(drop=True)
-        df_topc3 = topc_3.reset_index(drop=True)
+        # df_topc3 = topc_3.reset_index(drop=True)
 
         # Extract publication name and count for the top 3
         topc_1_name = df_topc1.iloc[0]["Publication Name"]
@@ -899,8 +911,8 @@ if file:
         topc_2_name = df_topc2.iloc[0]["Publication Name"]
         topc_2_count = df_topc2.iloc[0][client_column]
 
-        topc_3_name = df_topc3.iloc[0]["Publication Name"]
-        topc_3_count = df_topc3.iloc[0][client_column]
+        # topc_3_name = df_topc3.iloc[0]["Publication Name"]
+        # topc_3_count = df_topc3.iloc[0][client_column]
 
 
         PP = pd.crosstab(finaldata['Publication Name'], finaldata['Publication Type'])
